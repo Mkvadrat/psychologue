@@ -37,6 +37,7 @@ Version: 1.0
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.fancybox.min.js"></script>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/owl.carousel.min.js"></script>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/custom.js"></script>
+    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/reviews.js"></script>
     
     <?php wp_head(); ?>
 </head>

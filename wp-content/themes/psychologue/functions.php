@@ -365,6 +365,8 @@ function dimox_breadcrumbs() {
 	$show_current = 1; // 1 - показывать название текущей страницы, 0 - не показывать
 	$before = '<li><span>'; // тег перед текущей "крошкой"
 	$after = '</span></li>'; // тег после текущей "крошки"
+	$before_tax = '<li>'; // тег перед текущей "крошкой"
+	$after_tax = '</li>'; // тег после текущей "крошки"
 	/* === КОНЕЦ ОПЦИЙ === */
   
 	global $post;
@@ -429,12 +431,10 @@ function dimox_breadcrumbs() {
 			//Категории (для single.php)
 			if ($show_home_link) echo $sep;
 			if ( get_post_type() != 'post' ) {
-				if( get_post_type() == 'appliances'){
-					$page = get_post('755');
+				if( get_post_type() == 'shops'){					
+					$term = get_the_terms(get_the_ID(), 'shops-list');
 					
-					$term = get_the_terms(get_the_ID(), 'appliances-list');
-					
-					echo '<li><a href="'.get_page_link($page->ID).'">' . $page->post_title . '</a></li>' . $after . $sep . $before .'<li><a href="'.get_term_link($term[0]->term_id, 'appliances-list').'">' . $term[0]->name . '</a></li>' ;
+					echo $sep . '<li><a href="'.get_term_link($term[0]->term_id, 'shops-list').'">' . $term[0]->name . '</a></li>' ;
 					
 					if ($show_current) echo $sep . $before . get_the_title() . $after;
 				}else{
@@ -460,13 +460,9 @@ function dimox_breadcrumbs() {
 			//Категории (для category.php)
 			$term_name = get_term( get_queried_object()->term_id, 'appliances-list' );
 			
-			if(get_post_type() == 'appliances' || $term_name->taxonomy == 'appliances-list'){
+			if(get_post_type() == 'shops' || $term_name->taxonomy == 'shops-list'){
 				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-				
-				$page = get_post('755');
-				
-				echo $sep . '<li><a href="'.get_page_link($page->ID).'">' . $page->post_title . '</a></li>' . $after ;
-
+		
 				if ($show_current) echo $sep . $before . $term->name . $after;
 			}else{
 				$post_type = get_post_type_object(get_post_type());	  

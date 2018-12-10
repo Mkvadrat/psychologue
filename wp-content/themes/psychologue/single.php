@@ -24,7 +24,9 @@ get_header();
 					<div class="article-page">
 						<p class="title"><?php the_title(); ?></p>
 						<?php $image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full'); ?>
+						<?php if($image_url[0]){ ?>
 						<img src="<?php echo $image_url[0]; ?>" class="article-img">
+						<?php } ?>
 						<div class="article-text">
 						<?php if (have_posts()): while (have_posts()): the_post(); ?>
 							<?php the_content(); ?>

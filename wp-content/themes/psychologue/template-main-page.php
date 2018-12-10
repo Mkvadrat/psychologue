@@ -223,76 +223,66 @@ get_header();
 					?>
             </div>
          </div>
+         
+         <?php
+            $args = array(
+                'numberposts' => 3,
+                'post_type'   => 'shops',
+                'orderby'     => 'date',
+                'order'       => 'DESC',
+            );
+    
+            $shops_list = get_posts( $args );
+            
+            if($shops_list){
+         ?>
          <div class="row">
             <div class="col-md-12 tax-services">
                 <p class="title">Новые товары в магазине</p>
                 <div class="items">
-                    <div class="item">
-                        <a href="#" class="img">
-                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/new-services-1@2x.jpg" alt="">
-                        </a>
-                        <p>
-                            <a href="#">Тестовый Товар</a>
-                        </p>
-                        <p class="price">5500р.</p>
-                    </div>
-                    <div class="item">
-                        <a href="#" class="img">
-                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/new-services-2@2x.jpg" alt="">
-                        </a>
-                        <p>
-                            <a href="#">Тестовый Товар</a>
-                        </p>
-                        <p class="price">5500р.</p>
-                    </div>
-                    <div class="item">
-                        <a href="#" class="img">
-                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/new-services-3@2x.jpg" alt="">
-                        </a>
-                        <p>
-                            <a href="#">Тестовый Товар</a>
-                        </p>
-                        <p class="price">5500р.</p>
-                    </div>
+                     <?php foreach($shops_list as $list){ ?>
+                     <?php
+                        $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($list->ID), 'full');
+                        $title = stripcslashes( wp_trim_words( $list->post_title, 10, '...' ) );
+                        $link = get_permalink($list->ID);
+                        $price = get_post_meta( $list->ID, 'price_product_shops_page', $single = true )
+                     ?>
+                        <div class="item">
+                            <a href="<?php echo $link; ?>" class="img">
+                              <?php if(!empty($image_url)){ ?>
+                                  <img src="<?php echo $image_url[0]; ?>" alt="">
+                              <?php }else{ ?>
+                                 <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/new-services-1@2x.jpg" alt="">
+                              <?php } ?>
+                            </a>
+                            <p>
+                                <a href="<?php echo $link; ?>"><?php echo $title; ?></a>
+                            </p>
+                            <p class="price"><?php echo $price; ?></p>
+                        </div>
+                     <?php wp_reset_postdata(); ?>
+                     <?php } ?>
                 </div>
             </div>
          </div>
+         <?php } ?>
+         
+         <?php if(get_post_meta( get_the_ID(), 'enable_block_d_section_main_page', $single = true ) == 'yes'){ ?>
          <div class="row">
             <div class="col-md-12 index-page-form">
                 <div class="form">
-                    <form action="">
-                        <div class="form-head">
-                            <div>
-                                <p class="title">Записаться на консультацию</p>
-                            </div>
-                            <div>
-                                <p>Оставьте Ваши контактные данные и я с Вами обязательно свяжусь</p>
-                            </div>
-                        </div>
-                        <div class="form-body">
-                            <div>
-                                <input type="text" placeholder="Ваше имя*">
-                                <input type="text" placeholder="Номер телефона*">
-                                <input type="text" placeholder="Город">
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Ваш e-mail">
-                                <textarea placeholder="Вопрос" rows="4"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-bottomed">
-                            <div>
-                                <label><input type="checkbox" checked="false">я согласен (согласна) с политикой
-                                    конфиденциальности</label>
-                            </div>
-                            <div>
-                                <button type="submit" class="light-button">Отправить</button>
-                            </div>
-                        </div>
-                    </form>
+                  <?php
+                     $forms_b = get_post_meta( get_the_ID(), 'contacts_b_form_main_page', $single = true );
+
+                     if($forms_b){
+                         echo do_shortcode('[contact-form-7 id=" ' . $forms_b . ' "]'); 
+                     }
+                  ?>
                 </div>
             </div>
          </div>
+         <?php } ?>
+         
       </div>
    </section>
     

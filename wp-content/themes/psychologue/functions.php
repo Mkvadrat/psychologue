@@ -434,9 +434,10 @@ function dimox_breadcrumbs() {
 				if( get_post_type() == 'shops'){					
 					$term = get_the_terms(get_the_ID(), 'shops-list');
 					
-					echo $sep . '<li><a href="'.get_term_link($term[0]->term_id, 'shops-list').'">' . $term[0]->name . '</a></li>' ;
+					$shops_term = get_term( '14', 'shops-list' );
 					
-					if ($show_current) echo $sep . $before . get_the_title() . $after;
+					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($shops_term->term_id, 'shops-list') . '">' . $shops_term->name . '</a></li>' . $term->name .
+					'<li><a href="'.get_term_link($term[0]->term_id, 'shops-list').'">' . $term[0]->name . '</a></li>' . $sep . $before . get_the_title() . $after;
 				}else{
 					$post_type = get_post_type_object(get_post_type());
 					$slug = $post_type->rewrite;
@@ -458,16 +459,23 @@ function dimox_breadcrumbs() {
 			// custom post type
 		} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
 			//Категории (для category.php)
-			$term_name = get_term( get_queried_object()->term_id, 'appliances-list' );
+			$term_name = get_term( get_queried_object()->term_id, 'shops-list' );
 			
 			if(get_post_type() == 'shops' || $term_name->taxonomy == 'shops-list'){
 				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-		
-				if ($show_current) echo $sep . $before . $term->name . $after;
+				
+				$shops_term = get_term( '14', 'shops-list' );
+				
+				if(get_queried_object()->term_id != '14'){
+					if ($show_current) echo  '<li><a href="' . get_term_link($shops_term->term_id, 'shops-list') . '">' . $shops_term->name . '</a></li>' . $before . $term->name . $after;
+				}else{
+					if ($show_current) echo  $before . $term->name . $after;
+				}
+				
 			}else{
 				$post_type = get_post_type_object(get_post_type());	  
 				if ( get_query_var('paged') ) {
-					echo $sep . sprintf($link, get_page_link( $post_type->name), $post_type->label) . $sep . $before . sprintf($text['page'], get_query_var('paged')) . $after;
+					echo $sep . sprintf($link, get_page_link( $post_type->name ), $post_type->label) . $sep . $before . sprintf($text['page'], get_query_var('paged')) . $after;
 				} else {
 					if ($show_current) echo $sep . $before . $post_type->label . $after;
 				}

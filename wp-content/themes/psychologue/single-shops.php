@@ -44,7 +44,7 @@ get_header();
 						<div class="side-list">
 							<p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/shop-cart@2x.png" alt="">Магазин</p>
 							<?php 
-								$terms = get_terms("shops-list", 'orderby=count&hide_empty=0');
+								$terms = get_terms("shops-list", 'orderby=count&hide_empty=0&child_of=14');
 								$count = count($terms);
 								if ($count > 0) {
 									foreach ($terms as $term) {

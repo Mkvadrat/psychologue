@@ -11,7 +11,6 @@ get_header();
          <?php if(get_post_meta( get_the_ID(), 'enable_block_a_section_main_page', $single = true ) == 'yes'){ ?>
          <div class="row">
               <div class="col-md-12">
-               
                   <div class="owl-carousel top-slider">
                      <?php
                          global $nggdb;

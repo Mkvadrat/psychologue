@@ -43,6 +43,7 @@ get_header();
 					<aside class="shop-side">
 						<div class="side-list">
 							<p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/shop-cart@2x.png" alt="">Магазин</p>
+							<ul>
 							<?php 
 								$terms = get_terms("shops-list", 'orderby=count&hide_empty=0&child_of=14');
 								$count = count($terms);
@@ -50,13 +51,12 @@ get_header();
 									foreach ($terms as $term) {
 										$term_link = get_term_link($term->term_taxonomy_id, 'shops-list');
 							?>
-									<ul>
-										<li><a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></li>
-									</ul>
+								<li><a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></li>
 							<?php
 									}
 								}
 							?>
+							</ul>
 						</div>
 					</aside>
 				</div>

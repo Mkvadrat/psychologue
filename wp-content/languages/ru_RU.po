@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.0.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-12-11 18:40:52+0000\n"
+"PO-Revision-Date: 2018-12-12 14:11:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1592,7 +1592,7 @@ msgstr "Панель инструментов"
 
 #: wp-includes/js/dist/edit-post.js:2746
 msgid "Welcome to the wonderful world of blocks! Click the “+” (“Add block”) button to add a new block. There are blocks available for all kinds of content: you can insert text, headings, images, lists, and lots more!"
-msgstr "Добро пожаловать в чудесный мир блоков! Нажмите кнопку “+“ (“Добавить блок“), чтобы добавить новый блок. Доступны блоки для всех видов контента: вы можете вставлять текст, заголовки, изображения, списки и многое другое!"
+msgstr "Добро пожаловать в чудесный мир блоков! Нажмите кнопку «+» («Добавить блок»), чтобы добавить новый блок. Доступны блоки для всех видов содержимого: можно вставлять текст, заголовки, изображения, списки и многое другое!"
 
 #: wp-includes/js/dist/editor.js:13050
 msgid "Block deleted."

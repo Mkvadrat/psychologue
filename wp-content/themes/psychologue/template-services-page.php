@@ -19,21 +19,7 @@ get_header();
                      <p class="title"><?php the_title(); ?></p>
                      <?php
                         if(get_the_ID() == '523'){
-                           $th_cat_args = array(
-                              'sort_order'   => 'ASC',
-                              'sort_column'  => 'post_title',
-                              'hierarchical' => 1,
-                              'exclude'      => '',
-                              'include'      => '',
-                              'meta_key'     => '',
-                              'meta_value'   => '',
-                              'authors'      => '',
-                              'child_of'     => '525,527,529,531',
-                              'parent'       => -1,
-                              'exclude_tree' => '',
-                              'post_type'    => 'page',
-                              'post_status'  => 'publish',
-                           );
+                           $th_cat_pages = getChildPagesData('525,527,529,531');
                         }else{
                            $th_cat_args = array(
                               'sort_order'   => 'ASC',
@@ -50,10 +36,10 @@ get_header();
                               'post_type'    => 'page',
                               'post_status'  => 'publish',
                            );
+                           
+                           $th_cat_pages = get_pages($th_cat_args);
                         }
-                    
-                        $th_cat_pages = get_pages($th_cat_args);
-                        
+
                         if($th_cat_pages){
                      ?>
                      <div class="services-list">

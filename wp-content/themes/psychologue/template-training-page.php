@@ -19,21 +19,7 @@ get_header();
                      <p class="title"><?php the_title(); ?></p>
                      <?php
                         if(get_the_ID() == '569'){
-                           $th_cat_args = array(
-                              'sort_order'   => 'ASC',
-                              'sort_column'  => 'post_title',
-                              'hierarchical' => 1,
-                              'exclude'      => '',
-                              'include'      => '',
-                              'meta_key'     => '',
-                              'meta_value'   => '',
-                              'authors'      => '',
-                              'child_of'     => '580,583,585',
-                              'parent'       => -1,
-                              'exclude_tree' => '',
-                              'post_type'    => 'page',
-                              'post_status'  => 'publish',
-                           );
+                           $th_cat_pages = getChildPagesData('580,583,585');
                         }else{
                            $th_cat_args = array(
                               'sort_order'   => 'ASC',
@@ -98,7 +84,7 @@ get_header();
                <div class="col-md-4">
                   <aside class="services-side">
                         <div class="side-list">
-                           <p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/edu-side-icon@2x.png" alt="">Услуги</p>
+                           <p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/edu-side-icon@2x.png" alt="">Обучение</p>
   
                            <ul>
                               <?php foreach($pages as $page){ ?>

@@ -208,6 +208,16 @@ function getNextGallery($post_id, $meta_key){
 	return $unserialize_value;	
 }
 
+function getChildPagesData($pages_id){
+	global $wpdb;
+	
+	$query = "SELECT ID, post_name, post_title FROM $wpdb->posts WHERE post_parent IN($pages_id) AND post_status = 'publish' AND post_type = 'page' ORDER BY post_title";
+	
+	$results = $wpdb->get_results($query);
+    
+	return $results;
+}
+
 /**********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************
 *******************************************************************SEO PATH FOR IMAGE**********************************************************************

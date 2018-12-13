@@ -828,6 +828,7 @@ header .menu>li .submenu>li .subsubmenu>li>a::before {
 }
 
 /* текст */
+.activity-list,
 .tax-gallery,
 .tax-news, .tax-review, .tax-services, .reviews-list,.news-list {
     padding: 0 45px;
@@ -1430,7 +1431,7 @@ footer .m2 img {
     right: 15px;
     color: #fff;
 }
-
+.activities-page,
 .contact-page,
 .shop-page,
 .gallery-page,
@@ -1444,6 +1445,7 @@ footer .m2 img {
     margin-bottom: 30px;
 }
 
+.activities-page .title,
 .contact-page>.title,
 .shop-page .title,
 .gallery-page .title,
@@ -1501,11 +1503,12 @@ footer .m2 img {
 .paggination li a {
     text-decoration: none;
 }
+.paggination li .active,
 .paggination li a:hover {
     font-weight: bold;
     color: #766a86;
 }
-
+.activity-list .item,
 .news-list .item {
     margin-top: 30px;
     display: -webkit-box;
@@ -1517,15 +1520,20 @@ footer .m2 img {
     padding-bottom: 30px;
     border-bottom: 1px solid #e3dff3;
 }
-
+.activity-list .item {
+    flex-direction: column;
+}
+.activity-list .item+.item,
 .news-list .item+.item {
     margin-top: 40px;
 }
 
+.activity-list .item:last-of-type,
 .news-list .item:last-of-type {
     margin-bottom: 0px;
 }
 
+.activity-list .item .img,
 .news-list .item .img {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1538,14 +1546,17 @@ footer .m2 img {
     max-height: 215px;
     margin-right: 3.5%;
 }
-
+.activity-list .item .img {
+    width: 100%;
+}
+.activity-list .item .img img,
 .news-list .item .img img {
     -o-object-fit: cover;
     object-fit: cover;
     font-family: 'object-fit: cover';
     width: 100%;
 }
-
+.activity-list .item .text,
 .news-list .item .text {
     width: 71.5%;
     display: -webkit-box;
@@ -1559,12 +1570,16 @@ footer .m2 img {
     -ms-flex-align: start;
     align-items: flex-start;
 }
+.activity-list .item .text {
+    width: 100%;
+}
 
 .news-list .item .text p {
     margin: 0;
     text-indent: 30px;
 }
 
+.activity-list .item .text .name,
 .news-list .item .text .name {
     text-indent: 0;
     font-family: 'Angleciaprodisplayregular';
@@ -1573,7 +1588,10 @@ footer .m2 img {
     color: #766a86;
     margin: 0;
 }
-
+.activity-list .item .text .name {
+    margin: 15px 0;
+}
+.activity-list .item .bottomed,
 .news-list .item .bottomed {
     margin-top: 5px;
     display: -webkit-box;
@@ -1588,6 +1606,7 @@ footer .m2 img {
     justify-content: space-between;
 }
 
+.activity-list .item .bottomed .date,
 .news-list .item .bottomed .date {
     font-style: italic;
 }
@@ -1743,20 +1762,14 @@ footer .m2 img {
     display: flex;
     align-items: stretch;
 }
-.tables>div {
+.tables table {
     width: 50%;
-    padding: 0 15px 0 0;
     display: flex;
     align-items: stretch;
+    flex-direction: column;
+    align-self: stretch;
 }
-.tables>div+div {
-    padding: 0 0 0 15px;
-}
-.tables>div>div {
-    padding: 40px 30px 30px;
-    border: 1px solid #cbc9c7;
-}
-.tables>div .head {
+.tables table .head {
     font-family: 'MyriadPro-Bold';
     font-size: 18px;
     line-height: normal;
@@ -1764,28 +1777,32 @@ footer .m2 img {
     margin: 0 0 20px;
     text-indent: 0;
 }
-.tables>div table {
-    margin: 0;
-    padding: 0;
+.tables table {
+    margin: 0 15px 0 0;
+    padding: 40px 30px 30px;
     border: none;
+    border: 1px solid #cbc9c7;
 }
-.tables>div table tr {
+.tables table+table {
+    margin: 0 0 0 15px;
+}
+.tables table tr {
     display: flex;
     align-items: flex-start;
     margin-bottom: 30px;
 }
-.tables>div table tr:last-of-type {
+.tables table tr:last-of-type {
     margin-bottom: 10px;
 }
-.tables>div table tr td {
+.tables table tr td {
     font-size: 14px;
     line-height: 24px;
 }
-.tables>div table tr td:first-of-type {
+.tables table tbody tr td:first-of-type {
     width: 60%;
     padding-right: 30px;
 }
-.tables>div table tr td:last-of-type {
+.tables table tbody tr td:last-of-type {
     width: 40%;
 }
 .article-page>.title {

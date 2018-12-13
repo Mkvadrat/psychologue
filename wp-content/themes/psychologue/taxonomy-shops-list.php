@@ -19,7 +19,7 @@ get_header();
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-8">
 					<div class="gallery-page">
 						<?php
 							$term = get_queried_object();
@@ -101,6 +101,27 @@ get_header();
 							<?php echo wpautop($term->description); ?>
 						</div>
 					</div>
+				</div>
+				<div class="col-md-4">
+					<aside class="shop-side">
+						<div class="side-list">
+							<p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/shop-cart@2x.png" alt="">Магазин</p>
+							<ul>
+							<?php 
+								$terms = get_terms("shops-list", 'orderby=count&hide_empty=0&child_of=14');
+								$count = count($terms);
+								if ($count > 0) {
+									foreach ($terms as $term) {
+										$term_link = get_term_link($term->term_taxonomy_id, 'shops-list');
+							?>
+								<li><a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></li>
+							<?php
+									}
+								}
+							?>
+							</ul>
+						</div>
+					</aside>
 				</div>
 			</div>
 		</div>

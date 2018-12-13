@@ -46,26 +46,28 @@ Version: 1.0
         <header>
             <div class="container">
                 <div class="top-line row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 xs-hidden">
                         <p><?php echo getMeta('contact_inf_a_main_page'); ?></p>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
                         <p class="ralign"><?php echo getMeta('contact_inf_b_main_page'); ?></p>
                     </div>
                 </div>
                 <div class="central row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
                         <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                             <img src="<?php header_image(); ?>" alt="Зезюлинская Инна Алексеевна" />
                             <p><?php echo getMeta('slogan_main_page'); ?></p>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
                         <p class="calign call-cunsult">
                             <a href="#callback" class="light-button">Записаться на консультацию</a>
                         </p>
+                        <p class="phones ralign mobile"><?php echo getMeta('contact_inf_c_main_page'); ?></p>
+                        <p class="phones ralign mobile"><?php echo getMeta('contact_inf_d_main_page'); ?></p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-12 sm-hidden">
                         <p class="phones ralign"><?php echo getMeta('contact_inf_c_main_page'); ?></p>
                         <p class="phones ralign"><?php echo getMeta('contact_inf_d_main_page'); ?></p>
                     </div>
@@ -94,6 +96,9 @@ Version: 1.0
                                 ) );
                             }
                         ?>
+                        <div class="menu mobile">
+                            <a href="#menu">Открыть меню</a>
+                        </div>
                     </div>
                 </div>
             </div>

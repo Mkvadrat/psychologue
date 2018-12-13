@@ -12,13 +12,13 @@ $(document).ready(function() {
         navText : ['<span></span>','<span></span>']
     });
     
-    $('.form button[type="submit"]').attr('disabled','disabled');
+    $('.form input[type="submit"]').attr('disabled','disabled');
     $('.form .form-bottomed label input[type="checkbox"]')
         .on('change', function() {
             if ($(this).is(':checked')) {
-                $(this).parents('.form-bottomed').find('button').attr('disabled','disabled');
+                $(this).parents('.form-bottomed').find('input[type="submit"]').attr('disabled','disabled');
             } else {
-                $(this).parents('.form-bottomed').find('button').removeAttr('disabled');
+                $(this).parents('.form-bottomed').find('input[type="submit"]').removeAttr('disabled');
             }
         });
     
@@ -41,4 +41,14 @@ $(document).ready(function() {
         smallBtn    : true,
         touch       : false
     });
+
+    $("#menu").mmenu({
+        "extensions": [
+           "pagedim-black"
+        ],
+        "iconPanels": true,
+        navbar		: {
+			title	: "Меню"
+		}
+     });
 });

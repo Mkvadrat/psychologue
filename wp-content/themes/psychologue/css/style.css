@@ -38,7 +38,6 @@ p {
 p:last-of-type {
     margin-bottom: 0;
 }
-
 .ralign {
     text-align: right;
 }
@@ -188,6 +187,9 @@ h1, h2, h3, h4, h5, h6 {
     border-top: 1px solid #cbc9c7;
     border-bottom: 1px solid #cbc9c7;
     position: relative;
+}
+.mobile {
+    display: none;
 }
 
 .menu>li>a {
@@ -1197,7 +1199,9 @@ header .menu>li .submenu>li .subsubmenu>li>a::before {
     -ms-flex-align: start;
     align-items: flex-start;
 }
-
+.page-form .form .form-body>div span, .index-page-form .form .form-body>div span {
+    width: 100%;
+}
 .side-form .form .form-body input, .side-form .form .form-body textarea,
 .page-form .form .form-body input, .page-form .form .form-body textarea,
 .index-page-form .form .form-body input, .index-page-form .form .form-body textarea {
@@ -1267,6 +1271,7 @@ header .menu>li .submenu>li .subsubmenu>li>a::before {
     background-color: #fff;
     outline: none;
     margin-right: 10px;
+    flex-shrink: 0;
 }
 
 .side-form .form .form-bottomed label input[type="checkbox"]::before,

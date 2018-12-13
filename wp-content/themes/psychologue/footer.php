@@ -12,7 +12,8 @@ Version: 1.0
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 owl-carousel tax-slider">
+                    <div class="col-md-12 mob-padding">
+                        <div class="owl-carousel tax-slider">
                         <?php
                             global $nggdb;
                             $gallery_id = getNextGallery(15, 'psifest_banner_main_page');
@@ -34,6 +35,7 @@ Version: 1.0
                                 }
                             }
                         ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,6 +86,28 @@ Version: 1.0
                 </div>
             </div>
         </footer>
+        <nav id="menu">
+            <?php
+                wp_nav_menu( array(
+                    'theme_location'  => 'header_menu',
+                    'menu'            => '',
+                    'container'       => false,
+                    'container_class' => '',
+                    'container_id'    => '',
+                    'menu_class'      => '',
+                    'menu_id'         => '',
+                    'echo'            => true,
+                    'fallback_cb'     => 'wp_page_menu',
+                    'before'          => '',
+                    'after'           => '',
+                    'link_before'     => '',
+                    'link_after'      => '',
+                    'items_wrap'      => '<ul>%3$s</ul>',
+                    'depth'           => 3,
+                    'walker'          => new header_menu(),
+                ) );
+            ?>
+        </nav>
         <div id="callback" style="display:none;">
             <div class="container">
                 <div class="row">

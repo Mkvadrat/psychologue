@@ -113,6 +113,19 @@
     footer .ip {
         margin: 3px 0 0;
     }
+    .gallery-list .item {
+        width: 100%;
+        margin-right: 0;
+    }
+    .gallery-list .item .img {
+        max-height: initial;
+    }
+    .shop-page .article-img {
+        padding: 25px 23px 0;
+    }
+    .shop-page .shop-text {
+        padding: 0 23px 40px;
+    }
 }
 
 @media screen and (max-width:820px) {

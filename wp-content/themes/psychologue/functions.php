@@ -446,8 +446,15 @@ function dimox_breadcrumbs() {
 					
 					$shops_term = get_term( '14', 'shops-list' );
 					
-					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($shops_term->term_id, 'shops-list') . '">' . $shops_term->name . '</a></li>' . $term->name .
+					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($shops_term->term_id, 'shops-list') . '">' . $shops_term->name . '</a></li>' . 
 					'<li><a href="'.get_term_link($term[0]->term_id, 'shops-list').'">' . $term[0]->name . '</a></li>' . $sep . $before . get_the_title() . $after;
+				}elseif( get_post_type() == 'articles'){
+					$term = get_the_terms(get_the_ID(), 'articles-list');
+					
+					$articles_term = get_term( '21', 'articles-list' );
+					
+					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($articles_term->term_id, 'articles-list') . '">' . $articles_term->name . '</a></li>' .
+					'<li><a href="'.get_term_link($term[1]->term_id, 'articles-list').'">' . $term[1]->name . '</a></li>' . $sep . $before . get_the_title() . $after;
 				}else{
 					$post_type = get_post_type_object(get_post_type());
 					$slug = $post_type->rewrite;
@@ -469,9 +476,10 @@ function dimox_breadcrumbs() {
 			// custom post type
 		} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
 			//Категории (для category.php)
-			$term_name = get_term( get_queried_object()->term_id, 'shops-list' );
+			$term_name_shops = get_term( get_queried_object()->term_id, 'shops-list' );
+			$term_name_articles = get_term( get_queried_object()->term_id, 'articles-list' );
 			
-			if(get_post_type() == 'shops' || $term_name->taxonomy == 'shops-list'){
+			if(get_post_type() == 'shops' || $term_name_shops->taxonomy == 'shops-list'){
 				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 				
 				$shops_term = get_term( '14', 'shops-list' );
@@ -482,6 +490,16 @@ function dimox_breadcrumbs() {
 					if ($show_current) echo  $before . $term->name . $after;
 				}
 				
+			}elseif(get_post_type() == 'articles' || $term_name_articles->taxonomy == 'articles-list'){
+				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+				
+				$articles_term = get_term( '21', 'articles-list' );
+				
+				if(get_queried_object()->term_id != '21'){
+					if ($show_current) echo  '<li><a href="' . get_term_link($articles_term->term_id, 'articles-list') . '">' . $articles_term->name . '</a></li>' . $before . $term->name . $after;
+				}else{
+					if ($show_current) echo  $before . $term->name . $after;
+				}
 			}else{
 				$post_type = get_post_type_object(get_post_type());	  
 				if ( get_query_var('paged') ) {
@@ -620,3 +638,73 @@ function create_taxonomies_shops(){
     ));
 }
 add_action( 'init', 'create_taxonomies_shops', 0 );
+
+/**********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
+*******************************************************************РАЗДЕЛ "МЕРОПРИЯТИЯ" В АДМИНКЕ**********************************************************
+***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************/
+//Вывод в админке раздела
+function register_post_type_articles() {
+	$labels = array(
+	 'name' => 'Мероприятия',
+	 'singular_name' => 'Мероприятия',
+	 'add_new' => 'Добавить статью',
+	 'add_new_item' => 'Добавить новую статью',
+	 'edit_item' => 'Редактировать статью',
+	 'new_item' => 'Новая статья',
+	 'all_items' => 'Все статьи',
+	 'view_item' => 'Просмотр блога на сайте',
+	 'search_items' => 'Искать статью',
+	 'not_found' => 'Статья не найдена.',
+	 'not_found_in_trash' => 'В корзине нет статей.',
+	 'menu_name' => 'Мероприятия'
+	 );
+	 $args = array(
+		 'labels' => $labels,
+		 'public' => true,
+		 'exclude_from_search' => false,
+		 'show_ui' => true,
+		 'has_archive' => false,
+		 'menu_icon' => 'dashicons-welcome-write-blog', // иконка в меню
+		 'menu_position' => 20,
+		 'supports' =>  array('title','editor', 'thumbnail'),
+	 );
+ 	register_post_type('articles', $args);
+}
+add_action( 'init', 'register_post_type_articles' );
+
+function true_post_type_articles( $articles ) {
+	global $post, $post_ID;
+
+	$articles['articles'] = array(
+			0 => '',
+			1 => sprintf( 'Статьи обновлены. <a href="%s">Просмотр</a>', esc_url( get_permalink($post_ID) ) ),
+			2 => 'Статья обновлёна.',
+			3 => 'Статья удалёна.',
+			4 => 'Статья обновлена.',
+			5 => isset($_GET['revision']) ? sprintf( 'Статья восстановлена из редакции: %s', wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => sprintf( 'Статья опубликована на сайте. <a href="%s">Просмотр</a>', esc_url( get_permalink($post_ID) ) ),
+			7 => 'Статья сохранена.',
+			8 => sprintf( 'Отправлена на проверку. <a target="_blank" href="%s">Просмотр</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+			9 => sprintf( 'Запланирована на публикацию: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Просмотр</a>', date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+			10 => sprintf( 'Черновик обновлён. <a target="_blank" href="%s">Просмотр</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+	);
+	return $articles;
+}
+add_filter( 'post_updated_messages', 'true_post_type_articles' );
+
+//Категории для пользовательских записей
+function create_taxonomies_articles()
+{
+    // Cats Categories
+    register_taxonomy('articles-list',array('articles'),array(
+        'hierarchical' => true,
+        'label' => 'Рубрики',
+        'singular_name' => 'Рубрика',
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'articles-list' )
+    ));
+}
+add_action( 'init', 'create_taxonomies_articles', 0 );

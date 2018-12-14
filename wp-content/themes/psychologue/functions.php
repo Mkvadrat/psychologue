@@ -13,6 +13,46 @@ Version: 1.0
 ****************************************************************************НАСТРОЙКИ ТЕМЫ*****************************************************************
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
+function psy_scripts(){
+	
+	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
+    wp_enqueue_style( 'bootstrap' );
+
+	wp_register_style( 'normalize', get_template_directory_uri() . '/css/normalize.css');
+    wp_enqueue_style( 'normalize' );
+	
+	wp_register_style( 'mmenu', get_template_directory_uri() . '/css/jquery.mmenu.all.css');
+    wp_enqueue_style( 'mmenu' );
+	
+	wp_register_style( 'fancybox', get_template_directory_uri() . '/css/jquery.fancybox.min.css');
+    wp_enqueue_style( 'fancybox' );
+	
+	wp_register_style( 'carousel', get_template_directory_uri() . '/css/owl.carousel.min.css');
+    wp_enqueue_style( 'carousel' );
+	
+	wp_register_style( 'owl-default', get_template_directory_uri() . '/css/owl.theme.default.min.css'); 
+    wp_enqueue_style( 'owl-default' );
+	
+	wp_register_style( 'style', get_template_directory_uri() . '/css/style.css');
+    wp_enqueue_style( 'style' );
+	
+	wp_register_style( 'media', get_template_directory_uri() . '/css/media.css');
+    wp_enqueue_style( 'media' );
+	
+	if (!is_admin()) {
+		wp_enqueue_script( 'jquery-min', get_template_directory_uri() . '/js/jquery-3.3.1.min.js', '', '3.3.1', true );
+		wp_enqueue_script( 'carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', '', '', true );
+		wp_enqueue_script( 'mmenu', get_template_directory_uri() . '/js/jquery.mmenu.all.js', '', '', true );
+		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', '', '', true );
+		wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', '', '', true );
+		wp_enqueue_script( 'reviews', get_template_directory_uri() . '/js/reviews.js', '', '', true );
+	}
+
+}
+add_action( 'wp_enqueue_scripts', 'psy_scripts' );
+
+
+
 //Регистрируем название сайта
 function psy_wp_title( $title, $sep ) {
 	global $paged, $page;

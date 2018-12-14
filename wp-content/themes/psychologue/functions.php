@@ -13,6 +13,46 @@ Version: 1.0
 ****************************************************************************НАСТРОЙКИ ТЕМЫ*****************************************************************
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
+function psy_scripts(){
+	
+	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
+    wp_enqueue_style( 'bootstrap' );
+
+	wp_register_style( 'normalize', get_template_directory_uri() . '/css/normalize.css');
+    wp_enqueue_style( 'normalize' );
+	
+	wp_register_style( 'mmenu', get_template_directory_uri() . '/css/jquery.mmenu.all.css');
+    wp_enqueue_style( 'mmenu' );
+	
+	wp_register_style( 'fancybox', get_template_directory_uri() . '/css/jquery.fancybox.min.css');
+    wp_enqueue_style( 'fancybox' );
+	
+	wp_register_style( 'carousel', get_template_directory_uri() . '/css/owl.carousel.min.css');
+    wp_enqueue_style( 'carousel' );
+	
+	wp_register_style( 'owl-default', get_template_directory_uri() . '/css/owl.theme.default.min.css'); 
+    wp_enqueue_style( 'owl-default' );
+	
+	wp_register_style( 'style', get_template_directory_uri() . '/css/style.css');
+    wp_enqueue_style( 'style' );
+	
+	wp_register_style( 'media', get_template_directory_uri() . '/css/media.css');
+    wp_enqueue_style( 'media' );
+	
+	if (!is_admin()) {
+		wp_enqueue_script( 'jquery-min', get_template_directory_uri() . '/js/jquery-3.3.1.min.js', '', '3.3.1', true );
+		wp_enqueue_script( 'carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', '', '', true );
+		wp_enqueue_script( 'mmenu', get_template_directory_uri() . '/js/jquery.mmenu.all.js', '', '', true );
+		wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', '', '', true );
+		wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', '', '', true );
+		wp_enqueue_script( 'reviews', get_template_directory_uri() . '/js/reviews.js', '', '', true );
+	}
+
+}
+add_action( 'wp_enqueue_scripts', 'psy_scripts' );
+
+
+
 //Регистрируем название сайта
 function psy_wp_title( $title, $sep ) {
 	global $paged, $page;
@@ -430,6 +470,13 @@ function dimox_breadcrumbs() {
 					
 					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($articles_term->term_id, 'articles-list') . '">' . $articles_term->name . '</a></li>' .
 					'<li><a href="'.get_term_link($term[1]->term_id, 'articles-list').'">' . $term[1]->name . '</a></li>' . $sep . $before . get_the_title() . $after;
+				}elseif( get_post_type() == 'workshop'){
+					$term = get_the_terms(get_the_ID(), 'workshop-list');
+					
+					$workshop_term = get_term( '24', 'workshop-list' );
+					
+					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($workshop_term->term_id, 'workshop-list') . '">' . $workshop_term->name . '</a></li>' .
+					'<li><a href="'.get_term_link($term[0]->term_id, 'workshop-list').'">' . $term[0]->name . '</a></li>' . $sep . $before . get_the_title() . $after;
 				}else{
 					$post_type = get_post_type_object(get_post_type());
 					$slug = $post_type->rewrite;
@@ -453,6 +500,7 @@ function dimox_breadcrumbs() {
 			//Категории (для category.php)
 			$term_name_shops = get_term( get_queried_object()->term_id, 'shops-list' );
 			$term_name_articles = get_term( get_queried_object()->term_id, 'articles-list' );
+			$term_name_workshops = get_term( get_queried_object()->term_id, 'workshop-list' );
 			
 			if(get_post_type() == 'shops' || $term_name_shops->taxonomy == 'shops-list'){
 				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
@@ -472,6 +520,16 @@ function dimox_breadcrumbs() {
 				
 				if(get_queried_object()->term_id != '21'){
 					if ($show_current) echo  '<li><a href="' . get_term_link($articles_term->term_id, 'articles-list') . '">' . $articles_term->name . '</a></li>' . $before . $term->name . $after;
+				}else{
+					if ($show_current) echo  $before . $term->name . $after;
+				}
+			}elseif(get_post_type() == 'workshop' || $term_name_workshops->taxonomy == 'workshop-list'){
+				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+				
+				$workshop_term = get_term( '24', 'workshop-list' );
+				
+				if(get_queried_object()->term_id != '24'){
+					if ($show_current) echo  '<li><a href="' . get_term_link($workshop_term->term_id, 'workshop-list') . '">' . $workshop_term->name . '</a></li>' . $before . $term->name . $after;
 				}else{
 					if ($show_current) echo  $before . $term->name . $after;
 				}
@@ -686,12 +744,81 @@ add_action( 'init', 'create_taxonomies_articles', 0 );
 
 /**********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************
+*******************************************************************РАЗДЕЛ "МАСТЕРСКАЯ" В АДМИНКЕ***********************************************************
+***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************/
+//Вывод в админке раздела
+function register_post_type_workshop() {
+	$labels = array(
+	 'name' => 'Арт-мастерская',
+	 'singular_name' => 'Арт-мастерская',
+	 'add_new' => 'Добавить статью',
+	 'add_new_item' => 'Добавить новую статью',
+	 'edit_item' => 'Редактировать статью',
+	 'new_item' => 'Новая статья',
+	 'all_items' => 'Все статьи',
+	 'view_item' => 'Просмотр блога на сайте',
+	 'search_items' => 'Искать статью',
+	 'not_found' => 'Статья не найдена.',
+	 'not_found_in_trash' => 'В корзине нет статей.',
+	 'menu_name' => 'Арт-мастерская'
+	 );
+	 $args = array(
+		 'labels' => $labels,
+		 'public' => true,
+		 'exclude_from_search' => false,
+		 'show_ui' => true,
+		 'has_archive' => false,
+		 'menu_icon' => 'dashicons-welcome-write-blog', // иконка в меню
+		 'menu_position' => 20,
+		 'supports' =>  array('title','editor', 'thumbnail'),
+	 );
+ 	register_post_type('workshop', $args);
+}
+add_action( 'init', 'register_post_type_workshop' );
+
+function true_post_type_workshop( $workshop ) {
+	global $post, $post_ID;
+
+	$workshop['workshop'] = array(
+			0 => '',
+			1 => sprintf( 'Статьи обновлены. <a href="%s">Просмотр</a>', esc_url( get_permalink($post_ID) ) ),
+			2 => 'Статья обновлёна.',
+			3 => 'Статья удалёна.',
+			4 => 'Статья обновлена.',
+			5 => isset($_GET['revision']) ? sprintf( 'Статья восстановлена из редакции: %s', wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => sprintf( 'Статья опубликована на сайте. <a href="%s">Просмотр</a>', esc_url( get_permalink($post_ID) ) ),
+			7 => 'Статья сохранена.',
+			8 => sprintf( 'Отправлена на проверку. <a target="_blank" href="%s">Просмотр</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+			9 => sprintf( 'Запланирована на публикацию: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Просмотр</a>', date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+			10 => sprintf( 'Черновик обновлён. <a target="_blank" href="%s">Просмотр</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+	);
+	return $articles;
+}
+add_filter( 'post_updated_messages', 'true_post_type_workshop' );
+
+//Категории для пользовательских записей
+function create_taxonomies_workshop(){
+    // Cats Categories
+    register_taxonomy('workshop-list',array('workshop'),array(
+        'hierarchical' => true,
+        'label' => 'Рубрики',
+        'singular_name' => 'Рубрика',
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'workshop-list' )
+    ));
+}
+add_action( 'init', 'create_taxonomies_workshop', 0 );
+
+/**********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
 *****************************************************************REMOVE POST_TYPE SLUG*********************************************************************
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
 //Удаление sluga из url таксономии 
 function remove_slug_from_post( $post_link, $post, $leavename ) {
-	if ( 'articles' != $post->post_type && 'shops' != $post->post_type || 'publish' != $post->post_status ) {
+	if ( 'articles' != $post->post_type && 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
 		return $post_link;
 	}
 		$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
@@ -708,7 +835,7 @@ function parse_request_url_post( $query ) {
 	}
 
 	if ( ! empty( $query->query['name'] ) ) {
-		$query->set( 'post_type', array( 'post', 'articles', 'shops', 'page' ) );
+		$query->set( 'post_type', array( 'post', 'articles', 'shops', 'workshop', 'page' ) );
 	}
 }
 add_action( 'pre_get_posts', 'parse_request_url_post' );
@@ -797,7 +924,7 @@ function true_remove_slug_from_shops( $url, $term, $taxonomy ){
 }
 add_filter( 'term_link', 'true_remove_slug_from_shops', 10, 3 );
 
-//Перенаправление true_remove_slug_from_shops-list в случае удаления category
+//Перенаправление shops-list в случае удаления category
 function parse_request_url_shops( $query ){
 
 	$taxonomia_name = 'shops-list';
@@ -847,3 +974,68 @@ function parse_request_url_shops( $query ){
 
 }
 add_filter('request', 'parse_request_url_shops', 1, 1 );
+
+//Удаление workshop-list из url таксономии
+function true_remove_slug_from_workshop( $url, $term, $taxonomy ){
+
+	$taxonomia_name = 'workshop-list';
+	$taxonomia_slug = 'workshop-list';
+
+	if ( strpos($url, $taxonomia_slug) === FALSE || $taxonomy != $taxonomia_name ) return $url;
+
+	$url = str_replace('/' . $taxonomia_slug, '', $url);
+
+	return $url;
+}
+add_filter( 'term_link', 'true_remove_slug_from_workshop', 10, 3 );
+
+//Перенаправление workshop-list в случае удаления category
+function parse_request_url_workshop( $query ){
+
+	$taxonomia_name = 'workshop-list';
+
+	if( $query['attachment'] ) :
+		$condition = true;
+		$main_url = $query['attachment'];
+	else:
+		$condition = false;
+		$main_url = $query['name'];
+	endif;
+
+	$termin = get_term_by('slug', $main_url, $taxonomia_name);
+
+	if ( isset( $main_url ) && $termin && !is_wp_error( $termin )):
+
+		if( $condition ) {
+			unset( $query['attachment'] );
+			$parent = $termin->parent;
+			while( $parent ) {
+				$parent_term = get_term( $parent, $taxonomia_name);
+				$main_url = $parent_term->slug . '/' . $main_url;
+				$parent = $parent_term->parent;
+			}
+		} else {
+			unset($query['name']);
+		}
+
+		switch( $taxonomia_name ):
+			case 'category':{
+				$query['category_name'] = $main_url;
+				break;
+			}
+			case 'post_tag':{
+				$query['tag'] = $main_url;
+				break;
+			}
+			default:{
+				$query[$taxonomia_name] = $main_url;
+				break;
+			}
+		endswitch;
+
+	endif;
+
+	return $query;
+
+}
+add_filter('request', 'parse_request_url_workshop', 1, 1 );

@@ -220,31 +220,6 @@ function getChildPagesData($pages_id){
 
 /**********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************
-*******************************************************************SEO PATH FOR IMAGE**********************************************************************
-***********************************************************************************************************************************************************
-***********************************************************************************************************************************************************/
-function getAltImage($meta_key){
-	global $wpdb;
-
-	$post_id = $wpdb->get_var( $wpdb->prepare("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = %s ORDER BY meta_id DESC LIMIT 1" , $meta_key));
-
-	$attachment = get_post( $post_id );
-
-	return get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true );
-}
-
-function getTitleImage($meta_key){
-	global $wpdb;
-
-	$post_id = $wpdb->get_var( $wpdb->prepare("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = %s ORDER BY meta_id DESC LIMIT 1" , $meta_key));
-
-	$attachment = get_post( $post_id );
-
-	return $attachment->post_title;
-}
-
-/**********************************************************************************************************************************************************
-***********************************************************************************************************************************************************
 ***********************************************************************КОММЕНТАРИИ*************************************************************************
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
@@ -708,3 +683,167 @@ function create_taxonomies_articles()
     ));
 }
 add_action( 'init', 'create_taxonomies_articles', 0 );
+
+/**********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
+*****************************************************************REMOVE POST_TYPE SLUG*********************************************************************
+***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************/
+//Удаление sluga из url таксономии 
+function remove_slug_from_post( $post_link, $post, $leavename ) {
+	if ( 'articles' != $post->post_type && 'shops' != $post->post_type || 'publish' != $post->post_status ) {
+		return $post_link;
+	}
+		$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+	return $post_link;
+}
+add_filter( 'post_type_link', 'remove_slug_from_post', 10, 3 );
+
+function parse_request_url_post( $query ) {
+	if ( ! $query->is_main_query() )
+		return;
+
+	if ( 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {
+		return;
+	}
+
+	if ( ! empty( $query->query['name'] ) ) {
+		$query->set( 'post_type', array( 'post', 'articles', 'shops', 'page' ) );
+	}
+}
+add_action( 'pre_get_posts', 'parse_request_url_post' );
+
+/**********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
+*****************************************************************REMOVE CATEGORY_TYPE SLUG*****************************************************************
+***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************/
+//Удаление articles-list из url таксономии
+function true_remove_slug_from_articles( $url, $term, $taxonomy ){
+
+	$taxonomia_name = 'articles-list';
+	$taxonomia_slug = 'articles-list';
+
+	if ( strpos($url, $taxonomia_slug) === FALSE || $taxonomy != $taxonomia_name ) return $url;
+
+	$url = str_replace('/' . $taxonomia_slug, '', $url);
+
+	return $url;
+}
+add_filter( 'term_link', 'true_remove_slug_from_articles', 10, 3 );
+
+//Перенаправление articles-list в случае удаления category
+function parse_request_url_articles( $query ){
+
+	$taxonomia_name = 'articles-list';
+
+	if( $query['attachment'] ) :
+		$condition = true;
+		$main_url = $query['attachment'];
+	else:
+		$condition = false;
+		$main_url = $query['name'];
+	endif;
+
+	$termin = get_term_by('slug', $main_url, $taxonomia_name);
+
+	if ( isset( $main_url ) && $termin && !is_wp_error( $termin )):
+
+		if( $condition ) {
+			unset( $query['attachment'] );
+			$parent = $termin->parent;
+			while( $parent ) {
+				$parent_term = get_term( $parent, $taxonomia_name);
+				$main_url = $parent_term->slug . '/' . $main_url;
+				$parent = $parent_term->parent;
+			}
+		} else {
+			unset($query['name']);
+		}
+
+		switch( $taxonomia_name ):
+			case 'category':{
+				$query['category_name'] = $main_url;
+				break;
+			}
+			case 'post_tag':{
+				$query['tag'] = $main_url;
+				break;
+			}
+			default:{
+				$query[$taxonomia_name] = $main_url;
+				break;
+			}
+		endswitch;
+
+	endif;
+
+	return $query;
+
+}
+add_filter('request', 'parse_request_url_articles', 1, 1 );
+
+//Удаление shops-list из url таксономии
+function true_remove_slug_from_shops( $url, $term, $taxonomy ){
+
+	$taxonomia_name = 'shops-list';
+	$taxonomia_slug = 'shops-list';
+
+	if ( strpos($url, $taxonomia_slug) === FALSE || $taxonomy != $taxonomia_name ) return $url;
+
+	$url = str_replace('/' . $taxonomia_slug, '', $url);
+
+	return $url;
+}
+add_filter( 'term_link', 'true_remove_slug_from_shops', 10, 3 );
+
+//Перенаправление true_remove_slug_from_shops-list в случае удаления category
+function parse_request_url_shops( $query ){
+
+	$taxonomia_name = 'shops-list';
+
+	if( $query['attachment'] ) :
+		$condition = true;
+		$main_url = $query['attachment'];
+	else:
+		$condition = false;
+		$main_url = $query['name'];
+	endif;
+
+	$termin = get_term_by('slug', $main_url, $taxonomia_name);
+
+	if ( isset( $main_url ) && $termin && !is_wp_error( $termin )):
+
+		if( $condition ) {
+			unset( $query['attachment'] );
+			$parent = $termin->parent;
+			while( $parent ) {
+				$parent_term = get_term( $parent, $taxonomia_name);
+				$main_url = $parent_term->slug . '/' . $main_url;
+				$parent = $parent_term->parent;
+			}
+		} else {
+			unset($query['name']);
+		}
+
+		switch( $taxonomia_name ):
+			case 'category':{
+				$query['category_name'] = $main_url;
+				break;
+			}
+			case 'post_tag':{
+				$query['tag'] = $main_url;
+				break;
+			}
+			default:{
+				$query[$taxonomia_name] = $main_url;
+				break;
+			}
+		endswitch;
+
+	endif;
+
+	return $query;
+
+}
+add_filter('request', 'parse_request_url_shops', 1, 1 );

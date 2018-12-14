@@ -4,7 +4,7 @@
         position: absolute;
     }
     .tax-slider .owl-next, .top-slider .owl-next {
-        right: 38px;
+        right: -3px;
         position: absolute;
     }
 }
@@ -33,7 +33,7 @@
         position: absolute;
     }
     .tax-slider .owl-next, .top-slider .owl-next {
-        right: 38px;
+        right: -3px;
         position: absolute;
     }
 }
@@ -348,13 +348,13 @@
         border-bottom: 4px solid #fff;
     }
     .tax-slider .owl-prev span::before, .top-slider .owl-prev span::before, .tax-slider .owl-next span::before, .top-slider .owl-next span::before {
-        top: -7px;
+        top: 17px;
     }
     .tax-slider .owl-prev span::after, .top-slider .owl-prev span::after, .tax-slider .owl-next span::after, .top-slider .owl-next span::after {
-        top: 5px;
+        bottom: 17px;
     }
     .tax-slider .owl-next, .top-slider .owl-next {
-        right: 18px;
+        right: 0;
     }
     .tax-slider .owl-prev, .top-slider .owl-prev {
         left: -2px;

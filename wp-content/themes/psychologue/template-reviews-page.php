@@ -14,7 +14,7 @@ get_header();
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mob-padding">
                     <div class="reviews-page">
                         <p class="title"><?php the_title(); ?></p>
                         <div class="reviews-list">
@@ -102,7 +102,7 @@ get_header();
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 page-form">
+                <div class="col-md-12 page-form mob-padding">
                     <div class="form">
                         <form id="commentform">
                             <div class="form-head">

@@ -11,22 +11,22 @@ get_header();
          <?php if(get_post_meta( get_the_ID(), 'enable_block_a_section_about_page', $single = true ) == 'yes'){ ?>
          <?php $block_a = get_field('block_a_textarea_about_page'); ?>
          <div class="row help-icons">
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6">
                 <div class="icons">
                   <?php echo $block_a['textarea_a_about_page']; ?>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6">
                 <div class="icons">
                   <?php echo $block_a['textarea_b_about_page']; ?>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6">
                 <div class="icons">
                   <?php echo $block_a['textarea_c_about_page']; ?>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6">
                 <div class="icons">
                   <?php echo $block_a['textarea_d_about_page']; ?>
                 </div>
@@ -37,7 +37,7 @@ get_header();
          <?php if(get_post_meta( get_the_ID(), 'enable_block_b_section_about_page', $single = true ) == 'yes'){ ?>
          <?php $block_b = get_field('block_b_textarea_about_page'); ?>
          <div class="row events">
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-4">
                   <a class="event" href="<?php echo $block_b['link_text_a_about_page']; ?>">
                       <p class="head"><?php echo $block_b['title_text_a_about_page']; ?></p>
                       <div class="adds">
@@ -45,7 +45,7 @@ get_header();
                       </div>
                   </a>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-4">
                   <a class="event" href="<?php echo $block_b['link_text_b_about_page']; ?>">
                       <p class="head"><?php echo $block_b['title_text_b_about_page']; ?></p>
                       <div class="adds">
@@ -53,7 +53,7 @@ get_header();
                       </div>
                   </a>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-4">
                   <a class="event" href="<?php echo $block_b['link_text_c_about_page']; ?>">
                       <p class="head"><?php echo $block_b['title_text_c_about_page']; ?></p>
                       <div class="adds">
@@ -73,12 +73,12 @@ get_header();
                 </div>
          </div>
          <div class="row">
-              <div class="col-md-12 learning">
-                  <div class="col-md-4 text">
+              <div class="col-md-12 learning mob-padding">
+                  <div class="col-md-4 col-sm-6 col-xs-12 text">
                      <p class="title"><?php echo $block_c['title_text_b_about_page']; ?></p>
                      <?php echo wpautop($block_c['description_text_b_about_page']); ?>
                   </div>
-                  <div class="col-md-8 img">
+                  <div class="col-md-8 col-sm-6 col-xs-12 img">
                      <img src="<?php echo $block_c['image_block_about_page']['url']; ?>" alt="<?php echo $block_c['image_block_about_page']['alt']; ?>">
                   </div>
               </div>
@@ -90,15 +90,15 @@ get_header();
          <div class="row">
               <div class="col-md-12">
                   <div class="strong-sides">
-                      <div class="col-md-4">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
                           <img src="<?php echo $block_d['image_block_a_about_page']['url']; ?>" alt="<?php echo $block_d['image_block_a_about_page']['alt']; ?>">
                           <p><?php echo $block_d['title_text_a_about_page']; ?></p>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
                           <img src="<?php echo $block_d['image_block_b_about_page']['url']; ?>" alt="<?php echo $block_d['image_block_b_about_page']['alt']; ?>">
                           <p><?php echo $block_d['title_text_b_about_page']; ?></p>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
                           <img src="<?php echo $block_d['image_block_c_about_page']['url']; ?>" alt="<?php echo $block_d['image_block_c_about_page']['alt']; ?>">
                           <p><?php echo $block_d['title_text_c_about_page']; ?></p>
                       </div>
@@ -110,7 +110,7 @@ get_header();
          <?php if(get_post_meta( get_the_ID(), 'enable_block_e_section_about_page', $single = true ) == 'yes'){ ?>
          <?php $block_e = get_field('block_e_textarea_about_page'); ?>
          <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 mob-padding">
                   <div class="seotext">
                      <h2 class="title"><?php echo $block_e['title_text_a_about_page']; ?></h2>
                      <?php echo wpautop($block_e['description_text_a_about_page']); ?>
@@ -240,7 +240,7 @@ get_header();
          
          <?php if(get_post_meta( get_the_ID(), 'enable_block_g_section_about_page', $single = true ) == 'yes'){ ?>
          <div class="row">
-            <div class="col-md-12 index-page-form">
+            <div class="col-md-12 index-page-form mob-padding">
                 <div class="form">
                   <?php
                      $forms_a = get_post_meta( get_the_ID(), 'contacts_a_form_about_page', $single = true );

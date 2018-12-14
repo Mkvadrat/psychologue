@@ -65,7 +65,7 @@ get_header();
 			<?php $forms_c = get_post_meta( get_the_ID(), 'contacts_a_form_shops_page', $single = true ); ?>
 			<?php if($forms_c){ ?>
 			<div class="row">
-				<div class="col-md-12 page-form shop-page-form">
+				<div class="col-md-12 page-form shop-page-form mob-padding">
 					<div class="form">
 						<?php
 							echo do_shortcode('[contact-form-7 id=" ' . $forms_c . ' "]'); 	

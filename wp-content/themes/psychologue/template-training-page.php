@@ -122,7 +122,7 @@ get_header();
          
          <?php if(!empty(get_post_meta( get_the_ID(), 'additional_description_training_page', $single = true ))){ ?>
          <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mob-padding">
                   <div class="services-seotext">
                      <?php echo wpautop(get_post_meta( get_the_ID(), 'additional_description_training_page', $single = true )); ?>
                   </div>

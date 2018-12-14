@@ -86,6 +86,7 @@ Version: 1.0
                 </div>
             </div>
         </footer>
+        <div id="toTop"></div>
         <nav id="menu">
             <?php
                 wp_nav_menu( array(

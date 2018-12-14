@@ -19,6 +19,12 @@
     .icons ul a {
         font-size: 15px;
     }
+    .side-form .form-bottomed [type="submit"] {
+        padding: 10px;
+    }
+    .contact-text .first-half .img, .contact-text .first-half .contacts {
+        width: 50%;
+    }
 }
 
 @media screen and (min-width:991px) and (max-width:1040px) {
@@ -34,6 +40,7 @@
 
 @media screen and (max-width:991px) {
     .central {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
     .logo {
@@ -60,7 +67,11 @@
         display: none;
     }
     .menu.mobile {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
     .menu.mobile a {
@@ -76,8 +87,15 @@
         margin: 12px 0;
     }
     .icons {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
     .learning .img img {
@@ -95,6 +113,8 @@
     }
     footer .footer * {
         text-align: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
     footer .name {
@@ -113,8 +133,12 @@
     footer .ip {
         margin: 3px 0 0;
     }
-    .gallery-list .item {
-        width: 100%;
+    .gallery-list .item:nth-of-type(n) {
+        width: 49%;
+        margin-right: 2%;
+        margin-bottom: 2%;
+    }
+    .gallery-list .item:nth-of-type(2n) {
         margin-right: 0;
     }
     .gallery-list .item .img {
@@ -125,6 +149,19 @@
     }
     .shop-page .shop-text {
         padding: 0 23px 40px;
+    }
+    .gallery-list, .second-half, .first-half, .gallery-text, .article-page .article-text, .services-page .text, .article-seotext, .services-seotext {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .tables table {
+        margin: 0 7px 0 0;
+    }
+    .tables table+table {
+        margin: 0 0 0 8px;
+    }
+    .side-form .form .form-body span {
+        width: 100%;
     }
 }
 
@@ -141,6 +178,9 @@
 
 @media screen and (max-width:768px) {
     .logo {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     .logo p {
@@ -157,13 +197,21 @@
     }
     .event {
         margin: 0 0 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     .events div:last-of-type .event {
         margin: 0;
     }
     .learning {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
         flex-direction: column-reverse;
     }
     .learning .text {
@@ -174,6 +222,9 @@
         padding-bottom: 30px;
     }
     .strong-sides {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     .strong-sides p {
@@ -182,18 +233,21 @@
     .strong-sides>div:last-of-type p {
         margin-bottom: 0;
     }
-    .tax-news .item {
+    .news-list .item, .tax-news .item {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
-    .tax-news .item .img {
+    .news-list .item .img, .tax-news .item .img {
         width: 100%;
         margin: 0 0 15px;
         max-height: initial;
     }
-    .tax-news .item .text {
+    .news-list .item .text, .tax-news .item .text {
         width: 100%;
     }
-    .tax-news .item .text .name {
+    .news-list .item .text .name, .tax-news .item .text .name {
         margin-bottom: 5px;
     }
     .tax-services .items .item {
@@ -207,6 +261,9 @@
         height: auto;
     }
     .page-form .form .form-head, .page-form .form .form-body, .page-form .form .form-bottomed, .index-page-form .form .form-body, .index-page-form .form .form-bottomed, .index-page-form .form .form-head {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     .page-form .form .form-head>div, .page-form .form .form-body>div, .page-form .form .form-bottomed>div, .index-page-form .form .form-head>div, .index-page-form .form .form-body>div, .index-page-form .form .form-bottomed>div {
@@ -226,6 +283,9 @@
         margin: 0 0 10px;
     }
     .tax-slider .slide {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
         flex-direction: column-reverse;
     }
     .tax-slider .slide .text, .tax-slider .slide .img {
@@ -239,6 +299,37 @@
     }
     .top-slider .text .title {
         margin-top: 35px;
+    }
+    .services-page .services-list .item {
+        width: 50%;
+    }
+    .services-page .services-list .item:nth-of-type(3n) {
+        border-right: 1px solid #e3dff3;
+    }
+    .services-page .services-list .item:nth-of-type(2n) {
+        border-right: none;
+    }
+    .tables {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .tables table+table, .tables table {
+        width: 100%;
+        margin: 0 0 15px;
+        padding: 40px 15px 30px;
+    }
+    .tables table+table {
+        margin: 0;
+    }
+    .tables table tbody tr td:first-of-type {
+        padding-right: 15px;
+    }
+    .gallery-list .item:nth-of-type(n) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
     }
 }
 
@@ -269,12 +360,15 @@
         left: -2px;
     }
     .icons {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
         align-items: flex-start;
     }
     .seotext {
         padding: 40px 15px 50px;
     }
-    .tax-gallery, .tax-news, .tax-review, .tax-services, .reviews-list, .news-list {
+    /* .tax-gallery, .tax-news, .tax-review, .tax-services, .reviews-list, .news-list */
+    .activity-list, .tax-gallery, .tax-news, .tax-review, .tax-services, .reviews-list, .news-list {
         padding: 0 15px;
     }
     .tax-gallery .title, .tax-news .title, .tax-review .title, .tax-services .title {
@@ -289,6 +383,23 @@
     }
     footer .footer {
         padding: 0 0 25px;
+    }
+    .services-page .services-list .item:nth-of-type(n) {
+        width: 100%;
+        border-right: none;
+    }
+    .contact-text .first-half {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+    .contact-text .first-half .img, .contact-text .first-half .contacts {
+        width: 100%;
+        padding: 0;
+    }
+    .contact-text .first-half .img {
+        margin-top: 20px;
     }
 }
 

@@ -12,7 +12,7 @@ get_header();
 ?>
 
 	<section>
-		<?php $cat = wp_get_post_terms(get_the_ID(), 'articles-list'); ?>
+		<?php $cat = wp_get_post_terms(get_the_ID(), 'workshop-list'); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -37,14 +37,14 @@ get_header();
 				<div class="col-md-4">
 					<aside class="article-side">
 						<div class="side-list">
-							<p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/artcl-side-icon@2x.png" alt="">Мероприятия</p>
+							<p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/artcl-side-icon@2x.png" alt="">Арт-мастерская</p>
 							<ul>
 								<?php 
-									$terms = get_terms("articles-list", 'orderby=count&hide_empty=0&child_of=21');
+									$terms = get_terms("workshop-list", 'orderby=count&hide_empty=0&child_of=24');
 									$count = count($terms);
 									if ($count > 0) {
 										foreach ($terms as $term) {
-											$term_link = get_term_link($term->term_taxonomy_id, 'articles-list');
+											$term_link = get_term_link($term->term_taxonomy_id, 'workshop-list');
 								?>
 									<li><a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></li>
 								<?php
@@ -65,7 +65,7 @@ get_header();
                                <div class="col-md-12 index-page-form">
                                  <div class="form">
                                    <?php
-                                       $forms_a = getTermMeta('contacts_a_form_activities_page');;
+                                       $forms_a = getTermMeta('contacts_a_form_workshop_page');;
                                        if($forms_a){
                                          echo do_shortcode('[contact-form-7 id=" ' . $forms_a . ' "]'); 
                                        }
@@ -79,11 +79,11 @@ get_header();
 				</div>
 			</div>
 			
-			<?php if(!empty(get_post_meta( get_the_ID(), 'additional_description_activities_page', $single = true ))){ ?>
+			<?php if(!empty(get_post_meta( get_the_ID(), 'additional_description_workshop_page', $single = true ))){ ?>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="article-seotext">
-						<?php echo wpautop(get_post_meta( get_the_ID(), 'additional_description_activities_page', $single = true )); ?>
+						<?php echo wpautop(get_post_meta( get_the_ID(), 'additional_description_workshop_page', $single = true )); ?>
 					</div>
 				</div>
 			</div>

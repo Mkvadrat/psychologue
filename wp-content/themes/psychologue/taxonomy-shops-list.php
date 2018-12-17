@@ -19,6 +19,7 @@ get_header();
 				</div>
 			</div>
 			<div class="row">
+
 				<div class="col-md-8">
 					<div class="gallery-page">
 						<?php
@@ -61,9 +62,11 @@ get_header();
 								</a>
 
 							<?php } ?>
-						</div>
 						<?php wp_reset_postdata(); ?>
+						<?php } else { ?>
+							<p class="goods-not-found">В категории ещё нет товаров</p>
 						<?php } ?>
+						</div>
 												
 						<?php
                             $defaults = array(
@@ -110,6 +113,7 @@ get_header();
 						</div>
 					</aside>
 				</div>
+
 			</div>
 		</div>
 	</section>

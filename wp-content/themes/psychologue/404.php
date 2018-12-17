@@ -19,7 +19,7 @@ get_header();
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-xs-push-3">
+                <div class="col-md-6 col-md-push-3 col-sm-6 col-sm-push-3">
                     <div class="page-404">
                         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/Munk@2x.jpg" alt="">
                         <p class="title">Ошибка 404</p>

@@ -36,8 +36,8 @@ function psy_scripts(){
 	wp_register_style( 'style', get_template_directory_uri() . '/css/style.css');
     wp_enqueue_style( 'style' );
 	
-	wp_register_style( 'media', get_template_directory_uri() . '/css/media.css');
-    wp_enqueue_style( 'media' );
+	wp_register_style( 'media-css', get_template_directory_uri() . '/css/media.css');
+    wp_enqueue_style( 'media-css' );
 	
 	if (!is_admin()) {
 		wp_enqueue_script( 'jquery-min', get_template_directory_uri() . '/js/jquery-3.3.1.min.js', '', '3.3.1', true );

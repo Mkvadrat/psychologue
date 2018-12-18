@@ -96,6 +96,10 @@ get_header();
                             <?php } ?>
                         </ul>
                         <?php } ?>
+                        
+                        <div class="gallery-text">
+							<?php echo wpautop(category_description()); ?>
+						</div>
                     </div>
                 </div>
             </div>

@@ -7,119 +7,90 @@ get_header();
 ?>
 
    <section>
-      <div class="container">          
+      <div class="container">
          <?php if(get_post_meta( get_the_ID(), 'enable_block_a_section_about_page', $single = true ) == 'yes'){ ?>
          <?php $block_a = get_field('block_a_textarea_about_page'); ?>
-         <div class="row help-icons">
-            <div class="col-md-3 col-sm-6">
-                <div class="icons">
-                  <?php echo $block_a['textarea_a_about_page']; ?>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="icons">
-                  <?php echo $block_a['textarea_b_about_page']; ?>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="icons">
-                  <?php echo $block_a['textarea_c_about_page']; ?>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="icons">
-                  <?php echo $block_a['textarea_d_about_page']; ?>
-                </div>
-            </div>
-         </div>
+         <div class="row">
+               <div class="col-md-12 learning">
+                  <div class="col-md-4 text">
+                     <?php echo $block_a['textarea_a_about_page']; ?>
+                  </div>
+                  <div class="col-md-8 img">
+                     <img src="<?php echo $block_a['image_block_about_page']['url']; ?>" alt="<?php echo $block_c['image_block_about_page']['alt']; ?>">
+                  </div>
+               </div>
+          </div>
          <?php } ?>
-          
+         
          <?php if(get_post_meta( get_the_ID(), 'enable_block_b_section_about_page', $single = true ) == 'yes'){ ?>
          <?php $block_b = get_field('block_b_textarea_about_page'); ?>
-         <div class="row events">
-              <div class="col-md-4 col-sm-4">
-                  <a class="event" href="<?php echo $block_b['link_text_a_about_page']; ?>">
-                      <p class="head"><?php echo $block_b['title_text_a_about_page']; ?></p>
-                      <div class="adds">
-                          <p><?php echo $block_b['description_text_a_about_page']; ?></p>
-                      </div>
-                  </a>
-              </div>
-              <div class="col-md-4 col-sm-4">
-                  <a class="event" href="<?php echo $block_b['link_text_b_about_page']; ?>">
-                      <p class="head"><?php echo $block_b['title_text_b_about_page']; ?></p>
-                      <div class="adds">
-                          <p><?php echo $block_b['description_text_b_about_page']; ?></p>
-                      </div>
-                  </a>
-              </div>
-              <div class="col-md-4 col-sm-4">
-                  <a class="event" href="<?php echo $block_b['link_text_c_about_page']; ?>">
-                      <p class="head"><?php echo $block_b['title_text_c_about_page']; ?></p>
-                      <div class="adds">
-                          <p><?php echo $block_b['description_text_c_about_page']; ?></p>
-                      </div>
-                  </a>
-              </div>
+         <div class="row unic-seotext calign">
+            <div class="col-md-8 col-md-offset-2">
+               <?php echo get_post_meta( get_the_ID(), 'text_methods_block_about_page', $single = true ); ?>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="strong-sides">
+                  <div class="col-md-4">
+                     <img src="<?php echo $block_b['image_block_a_about_page']['url']; ?>" alt="<?php echo $block_b['image_block_a_about_page']['alt']; ?>">
+                     <p><?php echo $block_b['title_text_a_about_page']; ?></p>
+                  </div>
+                  <div class="col-md-4">
+                     <img src="<?php echo $block_b['image_block_b_about_page']['url']; ?>" alt="<?php echo $block_b['image_block_b_about_page']['alt']; ?>">
+                     <p><?php echo $block_b['title_text_b_about_page']; ?></p>
+                  </div>
+                  <div class="col-md-4">
+                     <img src="<?php echo $block_b['image_block_c_about_page']['url']; ?>" alt="<?php echo $block_b['image_block_c_about_page']['alt']; ?>">
+                     <p><?php echo $block_b['title_text_c_about_page']; ?></p>
+                  </div>
+               </div>
+            </div>
          </div>
          <?php } ?>
           
          <?php if(get_post_meta( get_the_ID(), 'enable_block_c_section_about_page', $single = true ) == 'yes'){ ?>
-         <?php $block_c = get_field('block_c_textarea_about_page'); ?>
-         <div class="row unic-seotext calign">
-              <div class="col-md-8 col-md-offset-2">
-                  <h1 class="title"><?php echo $block_c['title_text_a_about_page']; ?></h1>
-                  <?php echo wpautop($block_c['description_text_a_about_page']); ?>
-                </div>
-         </div>
+         <?php $block_c = get_field('block_b_textarea_about_page'); ?>
          <div class="row">
-              <div class="col-md-12 learning mob-padding">
-                  <div class="col-md-4 col-sm-6 col-xs-12 text">
-                     <p class="title"><?php echo $block_c['title_text_b_about_page']; ?></p>
-                     <?php echo wpautop($block_c['description_text_b_about_page']); ?>
-                  </div>
-                  <div class="col-md-8 col-sm-6 col-xs-12 img">
-                     <img src="<?php echo $block_c['image_block_about_page']['url']; ?>" alt="<?php echo $block_c['image_block_about_page']['alt']; ?>">
-                  </div>
-              </div>
+            <div class="col-md-12">
+               <div class="seotext">
+                  <?php echo get_post_meta( get_the_ID(), 'text_identity_block_about_page', $single = true ); ?>
+               </div>
+            </div>
          </div>
          <?php } ?>
          
          <?php if(get_post_meta( get_the_ID(), 'enable_block_d_section_about_page', $single = true ) == 'yes'){ ?>
-         <?php $block_d = get_field('block_d_textarea_about_page'); ?>
          <div class="row">
-              <div class="col-md-12">
-                  <div class="strong-sides">
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                          <img src="<?php echo $block_d['image_block_a_about_page']['url']; ?>" alt="<?php echo $block_d['image_block_a_about_page']['alt']; ?>">
-                          <p><?php echo $block_d['title_text_a_about_page']; ?></p>
-                      </div>
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                          <img src="<?php echo $block_d['image_block_b_about_page']['url']; ?>" alt="<?php echo $block_d['image_block_b_about_page']['alt']; ?>">
-                          <p><?php echo $block_d['title_text_b_about_page']; ?></p>
-                      </div>
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                          <img src="<?php echo $block_d['image_block_c_about_page']['url']; ?>" alt="<?php echo $block_d['image_block_c_about_page']['alt']; ?>">
-                          <p><?php echo $block_d['title_text_c_about_page']; ?></p>
-                      </div>
-                  </div>
-              </div>
+            <div class="col-md-12 tax-gallery">
+               <p class="title">Мои сертификаты:</p>
+               <div class="items">
+                  <?php
+                     global $nggdb;
+                     $gallery_id = getNextGallery(get_the_ID(), 'gallery_mycertificates_block_about_page');
+                     $gallery_image = $nggdb->get_gallery($gallery_id[0]["ngg_id"], 'sortorder', 'ASC', false, 0, 0);
+                     $i = 0; 
+                     if($gallery_image){
+                        foreach($gallery_image as $image) {
+                           if(!$image->exclude == 1){
+                              $i++;
+                              if($i > 6)  break;
+                     ?>
+                        <a href="<?php echo nextgen_esc_url($image->imageURL); ?>" data-fancybox="gallery" class="img">
+                           <img src="<?php echo nextgen_esc_url($image->thumbnailURL); ?>" alt="<?php echo esc_attr($image->alttext); ?>">
+                        </a>
+                     <?php  
+                           }
+                        }
+                     }
+                 ?>
+               </div>
+               <?php echo get_post_meta( get_the_ID(), 'text_mycertificates_block_about_page', $single = true ); ?>
+            </div>
          </div>
          <?php } ?>
          
          <?php if(get_post_meta( get_the_ID(), 'enable_block_e_section_about_page', $single = true ) == 'yes'){ ?>
-         <?php $block_e = get_field('block_e_textarea_about_page'); ?>
-         <div class="row">
-              <div class="col-md-12 mob-padding">
-                  <div class="seotext">
-                     <h2 class="title"><?php echo $block_e['title_text_a_about_page']; ?></h2>
-                     <?php echo wpautop($block_e['description_text_a_about_page']); ?>
-                  </div>
-              </div>
-         </div>
-         <?php } ?>
-         
-         <?php if(get_post_meta( get_the_ID(), 'enable_block_f_section_about_page', $single = true ) == 'yes'){ ?>
          <div class="row">
               <div class="col-md-12 tax-review">
                   <p class="title"><?php echo get_post_meta( get_the_ID(), 'title_reviews_text_about_page', $single = true ); ?></p>
@@ -151,50 +122,8 @@ get_header();
               </div>
          </div>
          <?php } ?>
-         
-         <div class="row">
-            <div class="col-md-12 tax-news">
-                <p class="title">Новости и статьи</p>
-                <?php 
-						$args = array(
-							'numberposts' => 3,
-							'orderby'     => 'date',
-							'order'       => 'DESC',
-							'post_type'   => 'post',
-							'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-						);
-
-						$posts = get_posts( $args );
-
-						foreach($posts as $post){ setup_postdata($post);
-						$image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
-					?>
-                <div class="item">
-                    <a class="img" href="<?php echo get_permalink($post->ID); ?>">
-                        <?php if(!empty($image_url)){ ?>
-                           <img src="<?php echo $image_url[0]; ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true ); ?>">
-                        <?php }else{ ?>
-                           <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/news@2x.jpg" alt="">
-                        <?php } ?>
-                    </a>
-                    <div class="text">
-                        <a href="<?php echo get_permalink($post->ID); ?>" class="name"><?php echo wp_trim_words( $post->post_title, 15, '...' ); ?></a>
-                        <p><?php echo wp_trim_words( $post->post_content, 20, '...' ); ?></p>
-                        <div class="bottomed">
-                            <a href="<?php echo get_permalink($post->ID); ?>" class="light-button">Подробнее</a>
-                            <span class="date"><?php echo get_the_date( 'd.m.y', $post->ID ); ?></span>
-                        </div>
-                    </div>
-                </div>
-               <?php
-							
-						}
-
-						wp_reset_postdata();
-					?>
-            </div>
-         </div>
-         
+ 
+         <?php if(get_post_meta( get_the_ID(), 'enable_block_f_section_about_page', $single = true ) == 'yes'){ ?>
          <?php
             $args = array(
                 'numberposts' => 3,
@@ -209,7 +138,7 @@ get_header();
          ?>
          <div class="row">
             <div class="col-md-12 tax-services">
-                <p class="title">Новые товары в магазине</p>
+                <p class="title"><?php echo get_post_meta( get_the_ID(), 'title_shops_text_about_page', $single = true ); ?></p>
                 <div class="items">
                      <?php foreach($shops_list as $list){ ?>
                      <?php
@@ -236,6 +165,7 @@ get_header();
                 </div>
             </div>
          </div>
+         <?php } ?>
          <?php } ?>
          
          <?php if(get_post_meta( get_the_ID(), 'enable_block_g_section_about_page', $single = true ) == 'yes'){ ?>

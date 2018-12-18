@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.0.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-12-13 19:29:02+0000\n"
+"PO-Revision-Date: 2018-12-18 00:12:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,13 +26,13 @@ msgctxt "default GMT offset or timezone string"
 msgid "0"
 msgstr "3"
 
-#: wp-admin/includes/class-wp-screen.php:282 wp-admin/post.php:20
-msgid "A post ID mismatch has been detected."
-msgstr "Найдено расхождение ID записи."
-
 #: wp-admin/post.php:44
 msgid "A post type mismatch has been detected."
-msgstr "Найдено расхождение типа записи."
+msgstr "Обнаружено несовпадение типа записи."
+
+#: wp-admin/includes/class-wp-screen.php:282 wp-admin/post.php:20
+msgid "A post ID mismatch has been detected."
+msgstr "Обнаружено несовпадение ID записи."
 
 #: wp-admin/includes/template.php:1026
 msgid "This meta box isn't compatible with the block editor."
@@ -125,13 +125,13 @@ msgstr "Предпочитаете остаться со старым, добр�
 msgid "Take advantage of a wide collection of APIs and interface components to easily create blocks with intuitive controls for your clients. Utilizing these components not only speeds up development work but also provide a more consistent, usable, and accessible interface to all users."
 msgstr "Используйте преимущества коллекции API и компонентов интерфейса для легкого создания блоков с интуитивным управлением для ваших пользователей. Используя эти компоненты, вы не только ускорите процесс разработки, но и предоставите более целостный, удобный и доступный интерфейс для всех пользователей."
 
-#: wp-admin/about.php:392
-msgid "Blocks provide a comfortable way for users to change content directly, while also ensuring the content structure cannot be easily disturbed by accidental code edits. This allows the developer to control the output, building polished and semantic markup that is preserved through edits and not easily broken."
-msgstr "Блоки предоставляют удобный способ для пользователей напрямую изменять содержимое с гарантией, что при случайном редактировании кода структура останется прежней. Это позволяет разработчикам контролировать результат, создавая отполированную семантическую верстку, которая сохранится при редактировании и не сломается легко."
-
 #: wp-admin/about.php:399
 msgid "Compose"
 msgstr "Скомпоновать"
+
+#: wp-admin/about.php:392
+msgid "Blocks provide a comfortable way for users to change content directly, while also ensuring the content structure cannot be easily disturbed by accidental code edits. This allows the developer to control the output, building polished and semantic markup that is preserved through edits and not easily broken."
+msgstr "Блоки предоставляют удобный способ для пользователей напрямую изменять содержимое с гарантией, что при случайном редактировании кода структура останется прежней. Это позволяет разработчикам контролировать результат, создавая отполированную семантическую верстку, которая сохранится при редактировании и не сломается легко."
 
 #: wp-admin/about.php:391
 msgid "Protect"
@@ -169,10 +169,6 @@ msgstr "Представляем Twenty Nineteen, новую тему по ум�
 msgid "Designed for the block editor"
 msgstr "Создана для редактора блоков"
 
-#: wp-admin/about.php:300
-msgid "This new editing experience provides a more consistent treatment of design as well as content. If you&#8217;re building client sites, you can create reusable blocks. This lets your clients add new content anytime, while still maintaining a consistent look and feel."
-msgstr "Новый опыт редактирования представляет более целостное обращение с дизайном и содержимым. Если вы создаете сайты для клиентов, вы можете создавать многократно используемые блоки. Они позволят вашим клиентам легко добавлять новое содержимое, с сохранением целостности вида и восприятия сайта."
-
 #: wp-admin/about.php:312
 msgid "Build your first post"
 msgstr "Создайте свою первую запись"
@@ -180,6 +176,10 @@ msgstr "Создайте свою первую запись"
 #: wp-admin/about.php:322
 msgid "A Stunning New Default Theme"
 msgstr "Потрясающая новая тема по умолчанию"
+
+#: wp-admin/about.php:300
+msgid "This new editing experience provides a more consistent treatment of design as well as content. If you&#8217;re building client sites, you can create reusable blocks. This lets your clients add new content anytime, while still maintaining a consistent look and feel."
+msgstr "Новый опыт редактирования представляет более целостное обращение с дизайном и содержимым. Если вы создаете сайты для клиентов, вы можете создавать многократно используемые блоки. Они позволят вашим клиентам легко добавлять новое содержимое, с сохранением целостности вида и восприятия сайта."
 
 #: wp-admin/about.php:335
 msgid "The front-end of Twenty Nineteen on the left, and how it looks in the editor on the right."
@@ -193,13 +193,13 @@ msgstr "Мы предоставили уйму блоков по умолчан�
 msgid "Freedom to Build, Freedom to Write"
 msgstr "Свобода создать, свобода написать"
 
-#: wp-admin/about.php:144 wp-admin/about.php:304
-msgid "Your browser doesn&#8217;t support HTML5 video. Here is a %1$slink to the video%2$s instead."
-msgstr "Ваш обозреватель не поддерживает HTML5 видео. Вот %1$sссылка на видеофайл%2$s."
-
 #: wp-admin/about.php:140
 msgid "The new block-based editor won&#8217;t change the way any of your content looks to your visitors. What it will do is let you insert any type of multimedia in a snap and rearrange to your heart&#8217;s content. Each piece of content will be in its own block; a distinct wrapper for easy maneuvering. If you&#8217;re more of an HTML and CSS sort of person, then the blocks won&#8217;t stand in your way. WordPress is here to simplify the process, not the outcome."
 msgstr "Новый, основанный на блоках, редактор не изменит вид отображения содержимого для посетителей. То, что он сделает, так это позволит вам легко вставить любой тип мультимедиа и перейти к подаче основного содержимого. Каждый элемент содержимого будет в собственном блоке, что даст вам свободу для маневров. Если же вы любите HTML и CSS, то блоки не станут вам мешать. WordPress упрощает процесс, а не результат."
+
+#: wp-admin/about.php:144 wp-admin/about.php:304
+msgid "Your browser doesn&#8217;t support HTML5 video. Here is a %1$slink to the video%2$s instead."
+msgstr "Ваш обозреватель не поддерживает HTML5 видео. Вот %1$sссылка на видеофайл%2$s."
 
 #: wp-admin/about.php:105
 msgid "Do more with fewer plugins."
@@ -213,10 +213,6 @@ msgstr "Создавайте современные, богатые мульти
 msgid "Work across all screen sizes and devices."
 msgstr "Работает со всеми устройствами и размерами экранов."
 
-#: wp-admin/about.php:94
-msgid "You&#8217;ve successfully upgraded to WordPress 5.0! We’ve made some big changes to the editor. Our new block-based editor is the first step toward an exciting new future with a streamlined editing experience across your site. You’ll have more flexibility with how content is displayed, whether you are building your first site, revamping your blog, or write code for a living."
-msgstr "Вы успешно обновили сайт до WordPress 5.0! Мы внесли огромные изменения в редактор. Наш новый блочный редактор - первый шаг в захватывающее будущее с рациональным целостным опытом редактирования сайта. У вас станет больше гибкости по отображению содержимого, неважно, создаете ли вы первый свой сайт, освежаете блог или создаете код для жизни."
-
 #: wp-admin/about.php:132
 msgid "Trust that your editor looks like your website."
 msgstr "Будьте уверены, что ваш редактор выглядит также, как и сайт."
@@ -225,9 +221,9 @@ msgstr "Будьте уверены, что ваш редактор выгляд
 msgid "Building with Blocks"
 msgstr "Создавайте из блоков"
 
-#: wp-admin/about.php:50
-msgid "Learn how to keep using the old editor."
-msgstr "Узнайте как продолжить использовать старый редактор."
+#: wp-admin/about.php:94
+msgid "You&#8217;ve successfully upgraded to WordPress 5.0! We’ve made some big changes to the editor. Our new block-based editor is the first step toward an exciting new future with a streamlined editing experience across your site. You’ll have more flexibility with how content is displayed, whether you are building your first site, revamping your blog, or write code for a living."
+msgstr "Вы успешно обновили сайт до WordPress 5.0! Мы внесли огромные изменения в редактор. Наш новый блочный редактор - первый шаг в захватывающее будущее с рациональным целостным опытом редактирования сайта. У вас станет больше гибкости по отображению содержимого, неважно, создаете ли вы первый свой сайт, освежаете блог или создаете код для жизни."
 
 #. translators: first post content, %s: site link
 #: wp-admin/includes/upgrade.php:178
@@ -241,6 +237,10 @@ msgstr "Поприветствуйте новый редактор"
 #: wp-admin/credits.php:23 wp-admin/freedoms.php:25 wp-admin/about.php:26
 msgid "Thank you for updating to the latest version! WordPress %s introduces a robust new content creation experience."
 msgstr "Спасибо за обновление до последней версии! WordPress %s представляет вам новые мощные возможности по созданию содержимого."
+
+#: wp-admin/about.php:50
+msgid "Learn how to keep using the old editor."
+msgstr "Узнайте, как продолжить использовать старый редактор."
 
 #. translators: first page content
 #: wp-admin/includes/upgrade.php:247
@@ -266,10 +266,6 @@ msgstr "...или так:"
 #: wp-admin/includes/upgrade.php:232
 msgid "This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:"
 msgstr "Это пример страницы. От записей в блоге она отличается тем, что остаётся на одном месте и отображается в меню сайта (в большинстве тем). На странице &laquo;Детали&raquo; владельцы сайтов обычно рассказывают о себе потенциальным посетителям. Например, так:"
-
-#: wp-admin/includes/post.php:2227
-msgid "This action is still supported in the classic editor, but is deprecated in the block editor."
-msgstr "Это действие по-прежнему поддерживается в классическом редакторе, но устарело в редакторе блоков."
 
 #. translators: %s: post title
 #: wp-admin/includes/class-wp-posts-list-table.php:1308
@@ -503,11 +499,6 @@ msgstr "Экспорт и удаление персональных данных
 msgid "New <strong>Tools</strong> have been added to help you with personal data export and erasure requests."
 msgstr "Новые <strong>инструменты</strong> добавлены для обработки запросов на экспорт и удаление персональных данных."
 
-#. translators: privacy policy tutorial.
-#: wp-admin/includes/misc.php:1901
-msgid "If your web site provides a service which includes automated decision making - for example, allowing customers to apply for credit, or aggregating their data into an advertising profile - you must note that this is taking place, and include information about how that information is used, what decisions are made with that aggregated data, and what rights users have over decisions made without human intervention."
-msgstr "Если ваш сайт предоставляет услуги, включающие автоматическое принятие решений, к примеру возможность клиенту получить кредит или сбор данных для рекламного профиля, то вам нужно указать, что подобное имеет место быть, как используется информация, какие решения принимаются на основе собраных данных и какие права пользователь имеет по принимаемым без вмешательства человека решениям."
-
 #. translators: default privacy policy heading.
 #: wp-admin/includes/misc.php:1905
 msgid "Industry regulatory disclosure requirements"
@@ -517,6 +508,11 @@ msgstr "Требования к раскрытию отраслевых норм
 #: wp-admin/includes/misc.php:1909
 msgid "If you are a member of a regulated industry, or if you are subject to additional privacy laws, you may be required to disclose that information here."
 msgstr "Если вы являетесь членом регулируемой отрасли или субъектом дополнительных законов по конфиденциальности, возможно вам стоит включить эту информацию здесь."
+
+#. translators: privacy policy tutorial.
+#: wp-admin/includes/misc.php:1901
+msgid "If your web site provides a service which includes automated decision making - for example, allowing customers to apply for credit, or aggregating their data into an advertising profile - you must note that this is taking place, and include information about how that information is used, what decisions are made with that aggregated data, and what rights users have over decisions made without human intervention."
+msgstr "Если ваш сайт предоставляет услуги, включающие автоматическое принятие решений, к примеру возможность клиенту получить кредит или сбор данных для рекламного профиля, то вам нужно указать, что подобное имеет место быть, как используется информация, какие решения принимаются на основе собраных данных и какие права пользователь имеет по принимаемым без вмешательства человека решениям."
 
 #. translators: privacy policy tutorial.
 #: wp-admin/includes/misc.php:1893
@@ -593,6 +589,11 @@ msgstr "При наличии учетной записи на сайте или
 msgid "Where we send your data"
 msgstr "Куда мы отправляем ваши данные"
 
+#. translators: default privacy policy text.
+#: wp-admin/includes/misc.php:1830
+msgid "For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information."
+msgstr "Для пользователей с регистрацией на нашем сайте мы храним ту личную информацию, которую они указывают в своем профиле. Все пользователи могут видеть, редактировать или удалить свою информацию из профиля в любое время (кроме имени пользователя). Администрация вебсайта также может видеть и изменять эту информацию."
+
 #. translators: default privacy policy heading.
 #: wp-admin/includes/misc.php:1833
 msgid "What rights you have over your data"
@@ -602,11 +603,6 @@ msgstr "Какие у вас права на ваши данные"
 #: wp-admin/includes/misc.php:1837
 msgid "In this section you should explain what rights your users have over their data and how they can invoke those rights."
 msgstr "В этом разделе нужно объяснить какие права есть у пользователей на их данные и как они могут воспользоваться ими."
-
-#. translators: default privacy policy text.
-#: wp-admin/includes/misc.php:1830
-msgid "For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information."
-msgstr "Для пользователей с регистрацией на нашем сайте мы храним ту личную информацию, которую они указывают в своем профиле. Все пользователи могут видеть, редактировать или удалить свою информацию из профиля в любое время (кроме имени пользователя). Администрация вебсайта также может видеть и изменять эту информацию."
 
 #. translators: default privacy policy text.
 #: wp-admin/includes/misc.php:1828
@@ -633,15 +629,15 @@ msgstr "Тут следует назвать и перечислить все т
 msgid "How long we retain your data"
 msgstr "Как долго мы храним ваши данные"
 
-#. translators: privacy policy tutorial.
-#: wp-admin/includes/misc.php:1806
-msgid "By default WordPress does not collect any analytics data. However, many web hosting accounts collect some anonymous analytics data. You may also have installed a WordPress plugin that provides analytics services. In that case, add information from that plugin here."
-msgstr "WordPress самостоятельно не собирает никаких аналитических данных. Тем не менее, многие хостинги совершают сбор анонимных данных. Вы также могли установить плагин предоставляющий возможности веб-аналитики. В таком случае добавьте информацию из этого плагина сюда."
-
 #. translators: default privacy policy heading.
 #: wp-admin/includes/misc.php:1810
 msgid "Who we share your data with"
 msgstr "С кем мы делимся вашими данными"
+
+#. translators: privacy policy tutorial.
+#: wp-admin/includes/misc.php:1806
+msgid "By default WordPress does not collect any analytics data. However, many web hosting accounts collect some anonymous analytics data. You may also have installed a WordPress plugin that provides analytics services. In that case, add information from that plugin here."
+msgstr "WordPress самостоятельно не собирает никаких аналитических данных. Тем не менее, многие хостинги совершают сбор анонимных данных. Вы также могли установить плагин предоставляющий возможности веб-аналитики. В таком случае добавьте информацию из этого плагина сюда."
 
 #. translators: default privacy policy heading.
 #: wp-admin/includes/misc.php:1800
@@ -708,15 +704,15 @@ msgstr "Если посетитель оставляет комментарий 
 msgid "By default, WordPress does not include a contact form. If you use a contact form plugin, use this subsection to note what personal data is captured when someone submits a contact form, and how long you keep it. For example, you may note that you keep contact form submissions for a certain period for customer service purposes, but you do not use the information submitted through them for marketing purposes."
 msgstr "WordPress не имеет своей формы контактов. Если вы используете плагин контактной формы, используйте этот раздел для указания какие данные собираются при заполнении формы контактов и как долго вы будете хранить их. К примеру, вам можно указать, что вы будете сохранять данные от форм в течение какого-то периода с целью предоставления обслуживания клиенту, но вы не будете использовать эти данные с целью  маркетинга."
 
-#. translators: default privacy policy heading.
-#: wp-admin/includes/misc.php:1768
-msgid "Contact forms"
-msgstr "Формы контактов"
-
 #. translators: default privacy policy text.
 #: wp-admin/includes/misc.php:1765
 msgid "If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website."
 msgstr "Если вы зарегистрированный пользователь и загружаете фотографии на сайт, вам возможно следует избегать загрузки изображений с метаданными EXIF, так как они могут содержать данные вашего месторасположения по GPS. Посетители могут извлечь эту информацию скачав изображения с сайта."
+
+#. translators: default privacy policy heading.
+#: wp-admin/includes/misc.php:1768
+msgid "Contact forms"
+msgstr "Формы контактов"
 
 #. translators: privacy policy tutorial.
 #: wp-admin/includes/misc.php:1740
@@ -738,15 +734,15 @@ msgstr "В дополнению к списку собираемых персо�
 msgid "You should also note any collection and retention of sensitive personal data, such as data concerning health."
 msgstr "Вам также стоит выделить факт сбора и хранения таких деликатных данных как, к примеру, данные о здоровье."
 
-#. translators: default privacy policy text, %s Site URL.
-#: wp-admin/includes/misc.php:1725
-msgid "Our website address is: %s."
-msgstr "Наш адрес сайта: %s."
-
 #. translators: privacy policy tutorial.
 #: wp-admin/includes/misc.php:1721
 msgid "The amount of information you may be required to show will vary depending on your local or national business regulations. You may, for example, be required to display a physical address, a registered address, or your company registration number."
 msgstr "Необходимое количество предоставляемой информации может отличаться в зависимости от локальных или национальных предписаний. К примеру, вам возможно требуется предоставить юридический адрес, фактический адрес или регистрационный номер организации."
+
+#. translators: default privacy policy text, %s Site URL.
+#: wp-admin/includes/misc.php:1725
+msgid "Our website address is: %s."
+msgstr "Наш адрес сайта: %s."
 
 #. translators: default privacy policy heading.
 #: wp-admin/includes/misc.php:1728
@@ -1235,7 +1231,7 @@ msgstr "Скачать персональные данные"
 msgid "Force Erase Personal Data"
 msgstr "Принудительное удаление персональных данных"
 
-#: wp-admin/includes/plugin-install.php:595
+#: wp-admin/includes/plugin-install.php:596
 msgid "Requires PHP Version:"
 msgstr "Требуемая версия PHP:"
 
@@ -1520,12 +1516,12 @@ msgid "%s (The year of the post, four digits, for example 2004.)"
 msgstr "%s (год записи, 4 цифры, например 2004.)"
 
 #. translators: %s: user's display name
-#: wp-admin/includes/post.php:1625
+#: wp-admin/includes/post.php:1631
 msgid "%s is already editing this post. Do you want to take over?"
 msgstr "%s уже редактирует эту запись. Вы хотите перехватить?"
 
 #. translators: %s: user's display name
-#: wp-admin/includes/post.php:1628
+#: wp-admin/includes/post.php:1634
 msgid "%s is already editing this post."
 msgstr "%s уже редактирует эту запись."
 
@@ -1533,7 +1529,7 @@ msgstr "%s уже редактирует эту запись."
 msgid "Theme Installation"
 msgstr "Установка темы"
 
-#: wp-admin/includes/plugin-install.php:602
+#: wp-admin/includes/plugin-install.php:603
 msgid "Active Installations:"
 msgstr "Активные установки:"
 
@@ -1541,7 +1537,7 @@ msgstr "Активные установки:"
 msgid "Custom installation script."
 msgstr "Пользовательский скрипт установки."
 
-#: wp-admin/includes/plugin-install.php:522 wp-admin/update.php:123
+#: wp-admin/includes/plugin-install.php:523 wp-admin/update.php:123
 msgid "Plugin Installation"
 msgstr "Установка плагина"
 
@@ -1791,7 +1787,7 @@ msgid "(%s ratings)"
 msgstr "(%s рейтинг)"
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:608
-#: wp-admin/includes/plugin-install.php:606
+#: wp-admin/includes/plugin-install.php:607
 msgctxt "Active plugin installations"
 msgid "Less Than 10"
 msgstr "Менее 10"
@@ -1801,7 +1797,7 @@ msgid "Sorry, you are not allowed to attach files to this post."
 msgstr "Извините, Вам не разрешено делать вложения файлов к этой записи."
 
 #: wp-admin/includes/plugin-install.php:239
-#: wp-admin/includes/plugin-install.php:612 wp-admin/freedoms.php:84
+#: wp-admin/includes/plugin-install.php:613 wp-admin/freedoms.php:84
 #: wp-admin/plugins.php:418 wp-admin/plugin-install.php:82
 msgid "https://wordpress.org/plugins/"
 msgstr "https://ru.wordpress.org/plugins/"
@@ -2468,11 +2464,11 @@ msgstr "Константа %s не может быть активна при у�
 msgid "WordPress has been installed. Thank you, and enjoy!"
 msgstr "WordPress установлен. Желаем успешной работы!"
 
-#: wp-admin/includes/plugin-install.php:626
+#: wp-admin/includes/plugin-install.php:627
 msgid "Reviews"
 msgstr "Отзывы"
 
-#: wp-admin/includes/plugin-install.php:627
+#: wp-admin/includes/plugin-install.php:628
 msgid "Read all reviews on WordPress.org or write your own!"
 msgstr "Посмотрите все отзывы на WordPress.org или напишите свой!"
 
@@ -2482,7 +2478,7 @@ msgstr "Архив темы"
 
 #. translators: 1: number of stars (used to determine singular/plural), 2:
 #. number of reviews
-#: wp-admin/includes/plugin-install.php:633
+#: wp-admin/includes/plugin-install.php:634
 msgid "Reviews with %1$d star: %2$s. Opens in a new window."
 msgid_plural "Reviews with %1$d stars: %2$s. Opens in a new window."
 msgstr[0] "Отзывов с оценкой в %1$d звезду: %2$s. Ссылка откроется в новой вкладке."
@@ -2493,7 +2489,7 @@ msgstr[2] "Отзывов с оценкой в %1$d звёзд: %2$s. Ссылк
 msgid "Attach to existing content"
 msgstr "Прикрепить к существующей записи"
 
-#: wp-admin/includes/post.php:1451
+#: wp-admin/includes/post.php:1457
 msgid "Click the image to edit or update"
 msgstr "Нажмите на изображение, чтобы изменить или обновить его"
 
@@ -3035,11 +3031,11 @@ msgstr "Скачать версию %s"
 msgid "Toggle panel: %s"
 msgstr "Показать/скрыть панель: %s"
 
-#: wp-admin/includes/post.php:1666
+#: wp-admin/includes/post.php:1672
 msgid "Saving revision&hellip;"
 msgstr "Сохранение редакции&hellip;"
 
-#: wp-admin/includes/post.php:1377
+#: wp-admin/includes/post.php:1383
 msgid "Edit permalink"
 msgstr "Изменить постоянную ссылку"
 
@@ -3798,7 +3794,7 @@ msgid "Plugins updated successfully."
 msgstr "Плагины успешно обновлены."
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:606
-#: wp-admin/includes/plugin-install.php:604
+#: wp-admin/includes/plugin-install.php:605
 msgctxt "Active plugin installations"
 msgid "1+ Million"
 msgstr "Более миллиона"
@@ -4017,7 +4013,7 @@ msgstr ""
 "\n"
 "Если вы считаете, что эти проблемы могут быть вызваны ошибкой в WordPress --\n"
 "пожалуйста, сообщите о ней.\n"
-" * Создайте тему на форуме поддержки: https://ru.forums.wordpress.org/forum/alphabeta\n"
+" * Создайте тему на форуме поддержки: https://ru.wordpress.org/support/forum/alphabeta/\n"
 " * Или напишите в багтрекер: https://core.trac.wordpress.org/\n"
 "\n"
 "Спасибо! -- Команда WordPress"
@@ -4227,13 +4223,13 @@ msgstr "Можно просматривать файлы в виде прост�
 msgid "Clicking an item will display an Attachment Details dialog, which allows you to preview media and make quick edits. Any changes you make to the attachment details will be automatically saved."
 msgstr "При нажатии на элемент откроется окно &laquo;Параметры файла&raquo; в котором можно просмотреть файл и сделать небольшие правки. Все изменения будут автоматически сохранены."
 
-#: wp-admin/upload.php:52
-msgid "To delete media items, click the Bulk Select button at the top of the screen. Select any items you wish to delete, then click the Delete Selected button. Clicking the Cancel Selection button takes you back to viewing your media."
-msgstr "Чтобы удалить файлы, нажмите кнопку &laquo;Множественный выбор&raquo; в верхней части экрана. Выберите элементы, которые хотите удалить, затем нажмите кнопку &laquo;Удалить выбранные&raquo;. Нажав кнопку &laquo;Снять выделение&raquo;, можно вернуться к просмотру файлов."
-
 #: wp-admin/upload.php:61
 msgid "You can also delete individual items and access the extended edit screen from the details dialog."
 msgstr "В окне параметров также можно удалить отдельный элемент или перейти к расширенному редактированию."
+
+#: wp-admin/upload.php:52
+msgid "To delete media items, click the Bulk Select button at the top of the screen. Select any items you wish to delete, then click the Delete Selected button. Clicking the Cancel Selection button takes you back to viewing your media."
+msgstr "Чтобы удалить файлы, нажмите кнопку &laquo;Множественный выбор&raquo; в верхней части экрана. Выберите элементы, которые хотите удалить, затем нажмите кнопку &laquo;Удалить выбранные&raquo;. Нажав кнопку &laquo;Снять выделение&raquo;, можно вернуться к просмотру файлов."
 
 #: wp-admin/plugin-install.php:123
 msgid "Browse Plugins"
@@ -4275,7 +4271,7 @@ msgstr "<strong>Несовместим</strong> с вашей версией Wor
 msgid "<strong>Compatible</strong> with your version of WordPress"
 msgstr "<strong>Совместим</strong> с вашей версией WordPress."
 
-#: wp-admin/includes/plugin-install.php:640
+#: wp-admin/includes/plugin-install.php:641
 msgid "%d star"
 msgid_plural "%d stars"
 msgstr[0] "%d звезда"
@@ -4374,16 +4370,16 @@ msgstr "Недавно обновлённые"
 msgid "The WordPress team is willing to help you. Forward this email to %s and the team will work with you to make sure your site is working."
 msgstr "Команда WordPress предлагает вам свою помощь. Перешлите это письмо на %s, и мы свяжемся с вами, чтобы обеспечить работоспособность вашего сайта."
 
-#: wp-admin/includes/plugin-install.php:616
-#: wp-admin/includes/plugin-install.php:670
+#: wp-admin/includes/plugin-install.php:617
+#: wp-admin/includes/plugin-install.php:671
 msgid "Donate to this plugin &#187;"
 msgstr "Сделать пожертвование &#187;"
 
-#: wp-admin/includes/plugin-install.php:650
+#: wp-admin/includes/plugin-install.php:651
 msgid "Contributors"
 msgstr "Участники разработки"
 
-#: wp-admin/includes/plugin-install.php:499
+#: wp-admin/includes/plugin-install.php:500
 msgctxt "Plugin installer section title"
 msgid "Reviews"
 msgstr "Отзывы"
@@ -5386,7 +5382,7 @@ msgstr "Аудиоформат:"
 msgid "Audio Codec:"
 msgstr "Аудиокодек:"
 
-#: wp-admin/includes/post.php:1667
+#: wp-admin/includes/post.php:1673
 msgid "Your latest changes were saved as a revision."
 msgstr "Ваши последние изменения сохранены в виде редакции."
 
@@ -5826,13 +5822,13 @@ msgstr "Будет ли учитываться этот запрос &mdash; з�
 msgid "Below you should enter your database connection details. If you&#8217;re not sure about these, contact your host."
 msgstr "Введите здесь информацию о подключении к базе данных. Если вы в ней не уверены, свяжитесь с хостинг-провайдером."
 
-#: wp-admin/plugin-install.php:92
-msgid "You can also browse a user&#8217;s favorite plugins, by using the Favorites link above the plugins list and entering their WordPress.org username."
-msgstr "Вы также можете просмотреть список любимых плагинов пользователя, нажав ссылку &laquo;Любимые&raquo; над списком плагинов и введя имя пользователя на WordPress.org."
-
 #: wp-admin/plugin-install.php:90
 msgid "If you know what you&#8217;re looking for, Search is your best bet. The Search screen has options to search the WordPress Plugin Directory for a particular Term, Author, or Tag. You can also search the directory by selecting popular tags. Tags in larger type mean more plugins have been labeled with that tag."
 msgstr "Если вы знаете, что ищете, стоит воспользоваться поиском. В блоке &laquo;Поиск&raquo; можно искать плагины из каталога WordPress по определённому ключевому слову, автору или метке. Можно также выполнять поиск по каталогу, выбирая популярные метки. Более крупный шрифт метки означает, что эта метка была присвоена большему числу плагинов."
+
+#: wp-admin/plugin-install.php:92
+msgid "You can also browse a user&#8217;s favorite plugins, by using the Favorites link above the plugins list and entering their WordPress.org username."
+msgstr "Вы также можете просмотреть список любимых плагинов пользователя, нажав ссылку &laquo;Любимые&raquo; над списком плагинов и введя имя пользователя на WordPress.org."
 
 #: wp-admin/plugin-install.php:93
 msgid "If you want to install a plugin that you&#8217;ve downloaded elsewhere, click the Upload Plugin button above the plugins list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugin."
@@ -6122,7 +6118,7 @@ msgstr "Плагин"
 
 #: wp-admin/includes/class-wp-themes-list-table.php:230
 #: wp-admin/includes/class-wp-theme-install-list-table.php:419
-#: wp-admin/includes/plugin-install.php:573
+#: wp-admin/includes/plugin-install.php:574
 msgid "Version:"
 msgstr "Версия:"
 
@@ -6454,32 +6450,32 @@ msgstr "Чтобы разрешить использование этой стр
 msgid "No comments awaiting moderation."
 msgstr "Нет комментариев, ожидающих проверки."
 
-#: wp-admin/includes/plugin-install.php:494
+#: wp-admin/includes/plugin-install.php:495
 msgctxt "Plugin installer section title"
 msgid "Description"
 msgstr "Описание"
 
-#: wp-admin/includes/plugin-install.php:495
+#: wp-admin/includes/plugin-install.php:496
 msgctxt "Plugin installer section title"
 msgid "Installation"
 msgstr "Установка"
 
-#: wp-admin/includes/plugin-install.php:496
+#: wp-admin/includes/plugin-install.php:497
 msgctxt "Plugin installer section title"
 msgid "FAQ"
 msgstr "FAQ"
 
-#: wp-admin/includes/plugin-install.php:497
+#: wp-admin/includes/plugin-install.php:498
 msgctxt "Plugin installer section title"
 msgid "Screenshots"
 msgstr "Скриншоты"
 
-#: wp-admin/includes/plugin-install.php:498
+#: wp-admin/includes/plugin-install.php:499
 msgctxt "Plugin installer section title"
 msgid "Changelog"
 msgstr "Изменения"
 
-#: wp-admin/includes/plugin-install.php:500
+#: wp-admin/includes/plugin-install.php:501
 msgctxt "Plugin installer section title"
 msgid "Other Notes"
 msgstr "Заметки"
@@ -6488,7 +6484,7 @@ msgstr "Заметки"
 msgid "You should update your web.config now."
 msgstr "Теперь необходимо обновить файл web.config."
 
-#: wp-admin/includes/plugin-install.php:614
+#: wp-admin/includes/plugin-install.php:615
 msgid "Plugin Homepage &#187;"
 msgstr "Страница плагина &#187;"
 
@@ -9785,7 +9781,7 @@ msgstr "Позиция"
 msgid "Save Widget"
 msgstr "Сохранить виджет"
 
-#: wp-admin/includes/misc.php:1084 wp-admin/includes/post.php:1827
+#: wp-admin/includes/misc.php:1084 wp-admin/includes/post.php:1833
 #: wp-admin/widgets.php:342
 msgid "Error while saving."
 msgstr "Ошибка при сохранении."
@@ -10010,7 +10006,7 @@ msgstr "Прилепленная запись"
 msgid "Sorry, you are not allowed to edit this attachment."
 msgstr "Извините, вам не разрешено редактировать это вложение."
 
-#: wp-admin/edit-tags.php:156 wp-admin/includes/post.php:1833
+#: wp-admin/edit-tags.php:156 wp-admin/includes/post.php:1839
 #: wp-admin/includes/class-wp-screen.php:282 wp-admin/async-upload.php:47
 #: wp-admin/post.php:20 wp-admin/post.php:44 wp-admin/post.php:123
 #: wp-admin/term.php:38 wp-admin/media-upload.php:46
@@ -11218,51 +11214,51 @@ msgstr "Поиск плагинов"
 msgid "Plugin zip file"
 msgstr "Архив плагина"
 
-#: wp-admin/includes/plugin-install.php:710
+#: wp-admin/includes/plugin-install.php:711
 msgid "Install Update Now"
 msgstr "Установить обновление"
 
 #. translators: %s: Plugin version
-#: wp-admin/includes/plugin-install.php:715
+#: wp-admin/includes/plugin-install.php:716
 msgid "Newer Version (%s) Installed"
 msgstr "Установлена более новая версия (%s)"
 
-#: wp-admin/includes/plugin-install.php:718
+#: wp-admin/includes/plugin-install.php:719
 msgid "Latest Version Installed"
 msgstr "Установлена свежая версия"
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:601
-#: wp-admin/includes/plugin-install.php:577
+#: wp-admin/includes/plugin-install.php:578
 msgid "Last Updated:"
 msgstr "Обновление:"
 
-#: wp-admin/includes/plugin-install.php:585
+#: wp-admin/includes/plugin-install.php:586
 msgid "Requires WordPress Version:"
 msgstr "Требуемая версия WordPress:"
 
 #. translators: %s: version number
-#: wp-admin/includes/plugin-install.php:588
-#: wp-admin/includes/plugin-install.php:598
+#: wp-admin/includes/plugin-install.php:589
+#: wp-admin/includes/plugin-install.php:599
 msgid "%s or higher"
 msgstr "%s или выше"
 
-#: wp-admin/includes/plugin-install.php:592
+#: wp-admin/includes/plugin-install.php:593
 msgid "Compatible up to:"
 msgstr "Совместим вплоть до:"
 
-#: wp-admin/includes/plugin-install.php:612
+#: wp-admin/includes/plugin-install.php:613
 msgid "WordPress.org Plugin Page &#187;"
 msgstr "Страница на WordPress.org &#187;"
 
-#: wp-admin/includes/plugin-install.php:620
+#: wp-admin/includes/plugin-install.php:621
 msgid "Average Rating"
 msgstr "Средний рейтинг"
 
-#: wp-admin/includes/plugin-install.php:679
+#: wp-admin/includes/plugin-install.php:680
 msgid "<strong>Warning:</strong> This plugin has <strong>not been tested</strong> with your current version of WordPress."
 msgstr "<strong>Внимание:</strong> Этот плагин <strong>не был протестирован</strong> с вашей версией WordPress."
 
-#: wp-admin/includes/plugin-install.php:681
+#: wp-admin/includes/plugin-install.php:682
 msgid "<strong>Warning:</strong> This plugin has <strong>not been marked as compatible</strong> with your version of WordPress."
 msgstr "<strong>Внимание:</strong> Этот плагин не был помечен как <strong>совместимый</strong> с вашей версией WordPress."
 
@@ -11749,7 +11745,7 @@ msgstr[0] "%s запись обновлена."
 msgstr[1] "%s записи обновлены."
 msgstr[2] "%s записей обновлены."
 
-#: wp-admin/includes/plugin-install.php:622
+#: wp-admin/includes/plugin-install.php:623
 msgid "(based on %s rating)"
 msgid_plural "(based on %s ratings)"
 msgstr[0] "(всего %s голос)"

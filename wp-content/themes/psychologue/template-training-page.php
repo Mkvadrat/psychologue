@@ -36,9 +36,11 @@ get_header();
                               'post_type'    => 'page',
                               'post_status'  => 'publish',
                            );
+                           
+                           $th_cat_pages = get_pages($th_cat_args);
                         }
                     
-                        $th_cat_pages = get_pages($th_cat_args);
+                       
                         
                         if($th_cat_pages){
                      ?>

@@ -29,7 +29,7 @@ jQuery(function($){
 					/*$('#author').val('');
 					$('#email').val('');
 					$('#theme_value').val('');*/
-					$('#comment').val('');
+					//$('#comment').val('');
 					//$('#submit').removeClass('loadingform').val('Отправить');
 					$('#submit').text('Отправить');
 				}

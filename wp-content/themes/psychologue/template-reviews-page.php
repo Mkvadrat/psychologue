@@ -113,12 +113,12 @@ get_header();
                             <div class="form-body">
                                 <div>
                                     <input type="text" name="author" id="author" placeholder="Ваше имя*">
-                                    <input type="text" name="phone" id="phone" placeholder="Номер телефона*">
+                                    <input type="text" name="phone" id="phone" placeholder="Номер телефона">
                                     <input type="text" name="city" id="city" placeholder="Город">
                                 </div>
                                 <div>
                                     <input type="text" name="email" id="email" placeholder="Ваш e-mail*">
-                                    <textarea name="comment" id="comment" placeholder="Вопрос" rows="4"></textarea>
+                                    <textarea name="comment" id="comment" placeholder="Отзыв" rows="4"></textarea>
                                 </div>
                             </div>
                             <?php echo comment_id_fields(); ?>

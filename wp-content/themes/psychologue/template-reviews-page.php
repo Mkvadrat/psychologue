@@ -79,7 +79,7 @@ get_header();
                                     $cnum = isset($cnum) ? $cnum+1 : 1;
                             ?>
                             <div class="item">
-                                <p class="name"><?php echo $descr; ?></p>
+                                <p class="name"><?php echo $author; ?></p>
                                 <span class="date"><?php comment_date( 'd.m.y', $comment->comment_ID ); ?></span>
                                 <p><?php echo $descr; ?></p>
                             </div>

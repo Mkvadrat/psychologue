@@ -19,7 +19,12 @@ get_header();
                      <p class="title"><?php the_title(); ?></p>
                      <?php
                         if(get_the_ID() == '569'){
-                           $th_cat_pages = getChildPagesData('580,583,585');
+                           //$th_cat_pages = getChildPagesData('580,583,585');
+                        ?>
+                        <div class="services-list">
+                           <?php echo get_post_meta( get_the_ID(), 'category_second_level_training_page', $single = true ); ?>
+                        </div>
+                        <?php
                         }else{
                            $th_cat_args = array(
                               'sort_order'   => 'ASC',
@@ -38,13 +43,11 @@ get_header();
                            );
                            
                            $th_cat_pages = get_pages($th_cat_args);
-                        }
-                    
-                       
-                        
-                        if($th_cat_pages){
-                     ?>
-                     <div class="services-list">
+
+                           if($th_cat_pages){
+                              
+                        ?>
+                        <div class="services-list">
                         <?php foreach($th_cat_pages as $th_cat){ ?>
                         <a class="item" href="<?php echo get_permalink($th_cat->ID); ?>">
                            <?php $image = get_field('thumb_block_training_in_page', $th_cat->ID); ?>
@@ -54,6 +57,7 @@ get_header();
                         <?php wp_reset_postdata(); ?>
                         <?php } ?>
                      </div>
+                     <?php } ?>
                      <?php } ?>
                      
                      <div class="text">

@@ -21,7 +21,7 @@ jQuery(function($){
 					$('.respond').replaceWith('<div class="respond">'+error_comments+'</div>');
 
 					if(!error_comments){
-						$('.respond').replaceWith('<div class="respond">Вы успешно оставили комментарий</div>');
+						$('.respond').replaceWith('<div class="respond">Отзыв отправлен на модерацию</div>');
 					}	
 				},
 				complete: function(){
@@ -29,7 +29,7 @@ jQuery(function($){
 					/*$('#author').val('');
 					$('#email').val('');
 					$('#theme_value').val('');*/
-					$('#comment').val('');
+					//$('#comment').val('');
 					//$('#submit').removeClass('loadingform').val('Отправить');
 					$('#submit').text('Отправить');
 				}

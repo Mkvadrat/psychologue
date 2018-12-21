@@ -64,8 +64,8 @@ get_header();
 								</div>
 							</div>
 							<?php } ?>
-						<?php wp_reset_postdata(); ?>
-						<?php } ?>
+							<?php wp_reset_postdata(); ?>
+							<?php } ?>
 						</div>
 						
 						<?php

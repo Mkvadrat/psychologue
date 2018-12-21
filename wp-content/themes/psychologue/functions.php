@@ -341,9 +341,9 @@ function true_add_ajax_comment(){
 		}
 	}
 	
-	if ( '' == trim($comment_phone) ||  '<p><br></p>' == $comment_phone ){
+	/*if ( '' == trim($comment_phone) ||  '<p><br></p>' == $comment_phone ){
 		$error_comment['error'] = wp_die( 'Ошибка: заполните необходимые поля (Телефон).' );
-	}
+	}*/
 	
 	if ( '' == trim($comment_content) ||  '<p><br></p>' == $comment_content ){
 		$error_comment['error'] = wp_die( 'Ошибка: Вы забыли про комментарий.' );

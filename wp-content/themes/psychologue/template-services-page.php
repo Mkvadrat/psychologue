@@ -19,7 +19,12 @@ get_header();
                      <p class="title"><?php the_title(); ?></p>
                      <?php
                         if(get_the_ID() == '523'){
-                           $th_cat_pages = getChildPagesData('525,527,529,531');
+                           //$th_cat_pages = getChildPagesData('525,527,529,531');
+                        ?>
+                        <div class="services-list">
+                           <?php echo get_post_meta( get_the_ID(), 'category_second_level_services_page', $single = true ); ?>
+                        </div>
+                        <?php
                         }else{
                            $th_cat_args = array(
                               'sort_order'   => 'ASC',
@@ -38,9 +43,8 @@ get_header();
                            );
                            
                            $th_cat_pages = get_pages($th_cat_args);
-                        }
-
-                        if($th_cat_pages){
+                        
+                           if($th_cat_pages){
                      ?>
                      <div class="services-list">
                         <?php foreach($th_cat_pages as $th_cat){ ?>
@@ -52,6 +56,7 @@ get_header();
                         <?php wp_reset_postdata(); ?>
                         <?php } ?>
                      </div>
+                     <?php } ?>
                      <?php } ?>
                      
                      <div class="text">

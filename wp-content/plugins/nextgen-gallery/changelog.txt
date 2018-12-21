@@ -1,6 +1,9 @@
 NextGEN Gallery
 by Imagely
 
+= V3.1.2 - 12.18.2018 =
+* Fixed:   Variable mismatch error when using central gallery management pages
+
 = V3.1.1 - 11.29.2018 =
 * Fixed:   Don't enqueue block editor assets on frontend.
 * Fixed:   Broken styling for column blocks

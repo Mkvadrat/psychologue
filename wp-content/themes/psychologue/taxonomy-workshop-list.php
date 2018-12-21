@@ -64,9 +64,9 @@ get_header();
 								</div>
 							</div>
 							<?php } ?>
-						</div>
 						<?php wp_reset_postdata(); ?>
 						<?php } ?>
+						</div>
 						
 						<?php
                             $defaults = array(

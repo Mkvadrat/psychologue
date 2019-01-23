@@ -12,10 +12,10 @@ get_header();
          <?php $block_a = get_field('block_a_textarea_about_page'); ?>
          <div class="row">
                <div class="col-md-12 learning">
-                  <div class="col-md-4 text">
+                  <div class="col-md-4 col-sm-6 text">
                      <?php echo $block_a['textarea_a_about_page']; ?>
                   </div>
-                  <div class="col-md-8 img">
+                  <div class="col-md-8 col-sm-6  img">
                      <img src="<?php echo $block_a['image_block_about_page']['url']; ?>" alt="<?php echo $block_c['image_block_about_page']['alt']; ?>">
                   </div>
                </div>

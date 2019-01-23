@@ -52,7 +52,7 @@ get_header();
                 <div class="col-md-4">
                     <aside class="article-side">
                         <div class="side-list">
-                            <p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/artcl-side-icon@2x.png" alt="">Услуги</p>
+                            <p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/edu-side-icon@2x.png" alt="">Обучение</p>
                             <ul>
                                 <?php foreach($pages as $page){ ?>
                                  <li><a href="<?php echo get_permalink($page->ID); ?>"><?php echo $page->post_title; ?></a></li>

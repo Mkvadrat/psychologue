@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - All in One SEO Pack - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-12-12 22:05:31+0000\n"
+"PO-Revision-Date: 2019-01-14 18:29:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,11 +10,6 @@ msgstr ""
 "X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: ru\n"
 "Project-Id-Version: Plugins - All in One SEO Pack - Stable (latest release)\n"
-
-#: aioseop_class.php:108 aioseop_class.php:122 aioseop_class.php:138
-#: aioseop_class.php:183
-msgid "%cf_fieldname% - Custom field name"
-msgstr "%cf_fieldname% - название произвольного поля"
 
 #: modules/aioseop_sitemap.php:202
 msgid "Create RSS Sitemap"
@@ -30,7 +25,12 @@ msgstr "Google Search Console:"
 
 #: aioseop_class.php:542
 msgid "Bing Webmaster Tools:"
-msgstr "Инструменты для вебмастера Bing:"
+msgstr "Инструменты вебмастера Bing:"
+
+#: aioseop_class.php:108 aioseop_class.php:122 aioseop_class.php:138
+#: aioseop_class.php:183
+msgid "%cf_fieldname% - Custom field name"
+msgstr "%cf_fieldname% - Название произвольного поля"
 
 #: aioseop_class.php:995
 msgid "Content Type Settings"
@@ -44,15 +44,15 @@ msgstr "Запретить"
 msgid "Modify Rule"
 msgstr "Изменить правило"
 
-#. translators: Link to documentation.
-#: modules/aioseop_sitemap.php:867
-msgid "view your XML sitemap"
-msgstr "посмотреть XML карту вашего сайта"
-
 #. translators: Link to sitemap within current site.
-#: modules/aioseop_sitemap.php:873
+#: modules/aioseop_sitemap.php:872
 msgid "Click here to %1$sview your RSS sitemap%2$s."
-msgstr "Нажмите здесь для %1$sпросмотра RSS карты сайта%2$s."
+msgstr "Нажмите здесь %1$sдля просмотра RSS карты сайта%2$s."
+
+#. translators: Link to documentation.
+#: modules/aioseop_sitemap.php:866
+msgid "view your XML sitemap"
+msgstr "посмотреть XML карту сайта"
 
 #: inc/aioseop_functions.php:439
 msgid "Please provide absolute URLs (including http or https)."
@@ -123,7 +123,7 @@ msgid "URL to the page. This field accepts relative URLs or absolute URLs with t
 msgstr "URL страницы. В поле может быть указан как относительный адрес, так и абсолютный, с указанием протокола."
 
 #. translators: Shows which sitemap files were renamed.
-#: modules/aioseop_sitemap.php:1170
+#: modules/aioseop_sitemap.php:1169
 msgid "Renamed %1$s to %2$s."
 msgstr "Переименовано %1$s в %2$s."
 
@@ -167,16 +167,16 @@ msgstr "Исключить изображения из карты сайта."
 msgid "Exclude Images"
 msgstr "Исключить изображения"
 
-#: modules/aioseop_sitemap.php:492
+#: modules/aioseop_sitemap.php:491
 msgid "Notice: To avoid problems with your XML Sitemap, we strongly recommend you enable Sitemap Indexes and set the Maximum Posts per Sitemap Page to 1000."
 msgstr "Заметка: Для избежания проблем с вашей XML картой сайта, мы очень рекомендуем включить индексы карты сайта и установить максимальное количество записей 1000 на страницу карты."
 
 #. translators: Links to the current AIOSEOP Sitemap settings.
-#: modules/aioseop_sitemap.php:496
+#: modules/aioseop_sitemap.php:495
 msgid "%1$s Click here%2$s to make these recommended changes."
 msgstr "%1$s Нажмите здесь %2$s чтобы выполнить эти рекомендуемые изменения."
 
-#: modules/aioseop_sitemap.php:868
+#: modules/aioseop_sitemap.php:867
 msgid " Your sitemap has been created with content and images."
 msgstr "Карта сайта создана с ссылками на содержимое и изображения."
 
@@ -469,7 +469,7 @@ msgid "CLICK HERE"
 msgstr "Нажмите СЮДА"
 
 #. translators: Shows which files were removed.
-#: modules/aioseop_sitemap.php:1278
+#: modules/aioseop_sitemap.php:1277
 msgid "Removed empty file %s."
 msgstr "Удалён пустой файл %s."
 
@@ -482,7 +482,7 @@ msgid "Show SEO News"
 msgstr "Отображать SEO-новости"
 
 #. translators: Link to documentation.
-#: modules/aioseop_sitemap.php:867
+#: modules/aioseop_sitemap.php:866
 msgid "Click here to %s."
 msgstr "Кликните сюда, чтобы %s."
 
@@ -494,7 +494,7 @@ msgstr "SEO-новости"
 msgid "Continue to the General Settings"
 msgstr "Продолжить в Общих настройках"
 
-#: modules/aioseop_sitemap.php:877
+#: modules/aioseop_sitemap.php:876
 msgid "Changes are automatically submitted to search engines."
 msgstr "Изменения автоматически отправлены поисковым системам."
 
@@ -836,7 +836,7 @@ msgstr "Показывать только записи с видео"
 msgid "Restrict Access to Video Sitemap"
 msgstr "Ограничить доступ к видео-карте сайта"
 
-#: all_in_one_seo_pack.php:350 admin/display/menu.php:40
+#: admin/display/menu.php:40 all_in_one_seo_pack.php:350
 msgid "Upgrade to Pro"
 msgstr "Улучшить до Pro"
 
@@ -912,11 +912,11 @@ msgstr "Введите свой Facebook App ID сюда. Информация �
 msgid "You can %1$s click here%2$s to go to your reading settings and toggle your blog visibility."
 msgstr "Вы можете %1$s нажать сюда%2$s, чтобы перейти к настройкам чтения и переключателю видимости сайта."
 
-#: modules/aioseop_sitemap.php:683
+#: modules/aioseop_sitemap.php:682
 msgid " Post Type"
 msgstr "Тип записи"
 
-#: modules/aioseop_sitemap.php:684
+#: modules/aioseop_sitemap.php:683
 msgid " Taxonomy"
 msgstr "Таксономия"
 
@@ -928,21 +928,21 @@ msgstr "Добавить URL"
 msgid "Additional Pages"
 msgstr "Дополнительные страницы"
 
-#: modules/aioseop_sitemap.php:675
+#: modules/aioseop_sitemap.php:674
 msgid "All Post Types"
 msgstr "Все типы записей"
 
-#: modules/aioseop_sitemap.php:676
+#: modules/aioseop_sitemap.php:675
 msgid "All Taxonomies"
 msgstr "Все таксономии"
 
 #. translators: Shows which sitemap files couldn't be found.
-#: modules/aioseop_sitemap.php:1175
+#: modules/aioseop_sitemap.php:1174
 msgid "Couldn't find file %s!"
 msgstr "Невозможно найти %s!"
 
 #. translators: Shows which sitemap files couldn't be renamed.
-#: modules/aioseop_sitemap.php:1165
+#: modules/aioseop_sitemap.php:1164
 msgid "Couldn't rename file %s!"
 msgstr "Невозможно переименовать файл %s!"
 
@@ -950,12 +950,12 @@ msgstr "Невозможно переименовать файл %s!"
 msgid "Create Compressed Sitemap"
 msgstr "Создать сжатую версию карты сайта"
 
-#: modules/aioseop_sitemap.php:1318
+#: modules/aioseop_sitemap.php:1317
 msgid "Delete Conflicting Files"
 msgstr "Удалить конфликтующие файлы"
 
 #. translators: Shows which sitemap files have been deleted.
-#: modules/aioseop_sitemap.php:1154
+#: modules/aioseop_sitemap.php:1153
 msgid "Deleted %s."
 msgstr "Удалено %s."
 
@@ -963,7 +963,7 @@ msgstr "Удалено %s."
 msgid "Do Not Override"
 msgstr "Не переопределять"
 
-#: modules/aioseop_sitemap.php:885
+#: modules/aioseop_sitemap.php:884
 msgid "Dynamic sitemap generation does not appear to be using the correct rewrite rules; please disable any other sitemap plugins or functionality on your site and reset your permalinks."
 msgstr "Динамическая генерация карты сайта, похоже, использует неверные rewrite rules (правила перезаписи), пожалуйста, отключите все другие плагины и сбросьте настройки постоянных ссылок."
 
@@ -1015,15 +1015,15 @@ msgstr "Дата последнего изменения страницы."
 msgid "Link From Virtual Robots.txt"
 msgstr "Ссылка на карту из виртуального robots.txt"
 
-#: modules/aioseop_sitemap.php:682
+#: modules/aioseop_sitemap.php:681
 msgid "Manually set the frequency for the "
 msgstr "Вручную установить частоту обновления для"
 
-#: modules/aioseop_sitemap.php:681
+#: modules/aioseop_sitemap.php:680
 msgid "Manually set the priority for the "
 msgstr "Вручную установить приоритет для"
 
-#: modules/aioseop_sitemap.php:673
+#: modules/aioseop_sitemap.php:672
 msgid "Media / Attachments"
 msgstr "Медиа / Вложения"
 
@@ -1045,7 +1045,7 @@ msgstr "Типы записей"
 
 #. translators: Shows which 'unknown' file is conflicting with the current
 #. sitemap settings.
-#: modules/aioseop_sitemap.php:1272
+#: modules/aioseop_sitemap.php:1271
 msgid "Potential conflict with unknown file %s."
 msgstr "Потенциальный конфликт с неизвестным файлом %s."
 
@@ -1053,15 +1053,15 @@ msgstr "Потенциальный конфликт с неизвестным ф
 msgid "Priorities"
 msgstr "Приоритеты"
 
-#: modules/aioseop_sitemap.php:893
+#: modules/aioseop_sitemap.php:892
 msgid "Privacy Settings"
 msgstr "Настройки приватности"
 
-#: modules/aioseop_sitemap.php:891
+#: modules/aioseop_sitemap.php:890
 msgid "Reading Settings"
 msgstr "Настройки чтения"
 
-#: modules/aioseop_sitemap.php:1317
+#: modules/aioseop_sitemap.php:1316
 msgid "Rename Conflicting Files"
 msgstr "Переименовать конфликтующие файлы"
 
@@ -1085,17 +1085,17 @@ msgstr "Частота обновления страницы."
 msgid "The priority of the page."
 msgstr "Приоритет страницы."
 
-#: modules/aioseop_sitemap.php:778
+#: modules/aioseop_sitemap.php:777
 msgid "Update Sitemap"
 msgstr "Обновить карту сайта"
 
-#: modules/aioseop_sitemap.php:1133
+#: modules/aioseop_sitemap.php:1132
 msgid "Warning: dynamic sitemap generation must have permalinks enabled."
 msgstr "Внимание: чтобы карта сайта была динамической, нужно включить постоянные ссылки."
 
 #. translators: Link to settings to disable "Discourage search engines from
 #. indexing this site".
-#: modules/aioseop_sitemap.php:896
+#: modules/aioseop_sitemap.php:895
 msgid "Warning: your privacy settings are configured to ask search engines to not index your site; you can change this under %s for your blog."
 msgstr "Внимание: настройки приватности заданы так, что поисковые системы не могут индексировать сайт, это можно изменить в настройках %s."
 
@@ -1107,11 +1107,11 @@ msgstr "архивные страницы"
 msgid "author pages"
 msgstr "страницы авторов"
 
-#: modules/aioseop_sitemap.php:1462
+#: modules/aioseop_sitemap.php:1461
 msgid "compressed"
 msgstr "сжатая"
 
-#: modules/aioseop_sitemap.php:1465
+#: modules/aioseop_sitemap.php:1464
 msgid "dynamic"
 msgstr "динамическая"
 
@@ -1131,7 +1131,7 @@ msgstr "записи"
 msgid "priority"
 msgstr "приоритет"
 
-#: modules/aioseop_sitemap.php:1460
+#: modules/aioseop_sitemap.php:1459
 msgid "static"
 msgstr "статическая"
 
@@ -1155,7 +1155,7 @@ msgstr "Ежедневно"
 msgid "Weekly"
 msgstr "Еженедельно"
 
-#: modules/aioseop_sitemap.php:560
+#: modules/aioseop_sitemap.php:559
 msgid "Once Weekly"
 msgstr "Один раз в неделю"
 
@@ -1175,11 +1175,11 @@ msgstr "Содержимое указанных рубрик будут искл
 msgid "Use page slugs or page IDs, seperated by commas, to exclude pages from the sitemap."
 msgstr "Используйте слаги или ID страниц, разделённые запятыми, для исключения страниц из карты сайта."
 
-#: modules/aioseop_sitemap.php:564
+#: modules/aioseop_sitemap.php:563
 msgid "Once Monthly"
 msgstr "Раз в месяц"
 
-#: modules/aioseop_sitemap.php:587
+#: modules/aioseop_sitemap.php:586
 msgid "Daily scheduled sitemap check has finished."
 msgstr "Запланированная ежедневная проверка карты сайта завершена."
 
@@ -1193,13 +1193,13 @@ msgstr "Максимальное количество публикаций в к
 
 #. translators: Notifies the admin which sitemaps failed to notify with which
 #. search engine(s), and display the error code.
-#: modules/aioseop_sitemap.php:1646
+#: modules/aioseop_sitemap.php:1645
 msgid "Failed to notify %1$s about changes to your sitemap at %2$s, error code %3$s."
 msgstr "При уведомлении %1$s об изменениях в карте сайта %2$s произошла ошибка. Код ошибки: %3$s."
 
 #. translators: Notifies the admin which sitemaps failed to notify with which
 #. search engine(s).
-#: modules/aioseop_sitemap.php:1650
+#: modules/aioseop_sitemap.php:1649
 msgid "Failed to notify %1$s about changes to your sitemap at %2$s, unable to access via wp_remote_get()."
 msgstr "При уведомлении %1$s об изменениях в карте сайта %2$s произошла ошибка. Невозможно получить доступ через wp_remote_get()."
 
@@ -1209,7 +1209,7 @@ msgstr "При уведомлении %1$s об изменениях в карт
 msgid "Manually set the %1$s of your %2$s."
 msgstr "Установите вручную %1$s ваших %2$s ."
 
-#: modules/aioseop_sitemap.php:1262
+#: modules/aioseop_sitemap.php:1261
 msgid "Warning: a static sitemap '%1$s' generated by All in One SEO Pack %2$s on %3$s already exists that may conflict with dynamic sitemap generation."
 msgstr "Внимание: статическая карта сайта '%1$s' , созданная All in One SEO Pack %2$s в %3$s уже существует (возможен конфликт с динамической картой сайта)."
 
@@ -1333,7 +1333,7 @@ msgstr "Активность"
 msgid "Actor"
 msgstr "Актер"
 
-#: modules/aioseop_opengraph.php:611 aioseop_class.php:1054
+#: aioseop_class.php:1054 modules/aioseop_opengraph.php:611
 msgid "Advanced Settings"
 msgstr "Расширенные настройки"
 
@@ -1636,9 +1636,9 @@ msgstr "Google+"
 msgid "Government"
 msgstr "Правительство"
 
-#: aioseop_class.php:5004 aioseop_class.php:5024
 #: admin/aioseop_module_class.php:2101 admin/aioseop_module_class.php:2430
-#: admin/aioseop_module_class.php:2750
+#: admin/aioseop_module_class.php:2750 aioseop_class.php:5004
+#: aioseop_class.php:5024
 msgid "Help"
 msgstr "Помощь"
 
@@ -1678,8 +1678,8 @@ msgstr "Импорт"
 #. translators: the Importer & Exporter module allows users to import/export
 #. their All in One SEO Pack settings for backup purposes or when migrating
 #. their site.
-#: modules/aioseop_importer_exporter.php:16
 #: modules/aioseop_feature_manager.php:56
+#: modules/aioseop_importer_exporter.php:16
 msgid "Importer & Exporter"
 msgstr "Импорт & Экспорт"
 
@@ -1801,7 +1801,7 @@ msgstr "PHP версия"
 
 #. translators: the Performance module allows users to set certain performance
 #. related settings and check the status of their WordPress installation.
-#: modules/aioseop_performance.php:15 modules/aioseop_feature_manager.php:68
+#: modules/aioseop_feature_manager.php:68 modules/aioseop_performance.php:15
 msgid "Performance"
 msgstr "Производительность"
 
@@ -1929,7 +1929,7 @@ msgstr "Проверьте свой сайт на дубли социальны�
 msgid "School"
 msgstr "Школа"
 
-#: modules/aioseop_sitemap.php:1140 admin/aioseop_module_class.php:2623
+#: admin/aioseop_module_class.php:2623 modules/aioseop_sitemap.php:1139
 msgid "Security Check - If you receive this in error, log out and back in to WordPress"
 msgstr "Ошибка системы безопасности. Выйдите из аккаунта WordPress и зайдите в него снова"
 
@@ -1976,7 +1976,7 @@ msgstr "Короткое имя не может быть пустым!"
 #. translators: the Social Meta module allows users to add Open Graph (OG:)
 #. meta tags to their site's post/pages to control the appearance of them when
 #. shared on social media networks like Facebook and Twitter.
-#: modules/aioseop_opengraph.php:22 modules/aioseop_feature_manager.php:38
+#: modules/aioseop_feature_manager.php:38 modules/aioseop_opengraph.php:22
 msgid "Social Meta"
 msgstr "Социальные мета"
 
@@ -2248,8 +2248,8 @@ msgstr "Настройки индексирования (noindex)"
 msgid "%post_title% - The original title of the post."
 msgstr "%post_title% - Оригинальный заголовок записи."
 
-#: modules/aioseop_importer_exporter.php:518
 #: modules/aioseop_performance.php:318
+#: modules/aioseop_importer_exporter.php:518
 msgid "Settings export file for All in One SEO Pack"
 msgstr "Настройки экспорта файлов в All in One SEO Pack"
 
@@ -2656,7 +2656,7 @@ msgstr "По умолчанию NOFOLLOW:"
 msgid "Default to NOINDEX:"
 msgstr "По умолчанию NOINDEX:"
 
-#: modules/aioseop_opengraph.php:438 aioseop_class.php:921
+#: aioseop_class.php:921 modules/aioseop_opengraph.php:438
 msgid "Description"
 msgstr "Описание"
 
@@ -2684,10 +2684,10 @@ msgstr "Отключить SEO для страницы."
 msgid "Disable on this page/post"
 msgstr "Отключить для этой страницы/записи"
 
-#: modules/aioseop_performance.php:68 aioseop_class.php:378
-#: aioseop_class.php:394 aioseop_class.php:417 aioseop_class.php:427
-#: aioseop_class.php:436 aioseop_class.php:579 aioseop_class.php:595
-#: aioseop_class.php:617
+#: aioseop_class.php:378 aioseop_class.php:394 aioseop_class.php:417
+#: aioseop_class.php:427 aioseop_class.php:436 aioseop_class.php:579
+#: aioseop_class.php:595 aioseop_class.php:617
+#: modules/aioseop_performance.php:68
 msgid "Disabled"
 msgstr "Отключить"
 
@@ -2727,10 +2727,10 @@ msgstr "Не отображать эту страницу в карте сайт
 msgid "Enable this to display advanced options for controlling Google Plus authorship information on your website."
 msgstr "Включите эту опцию, чтобы отобразить дополнительные настройки управления Google+ авторство на Вашем сайте."
 
-#: modules/aioseop_performance.php:67 aioseop_class.php:377
-#: aioseop_class.php:393 aioseop_class.php:416 aioseop_class.php:426
-#: aioseop_class.php:435 aioseop_class.php:578 aioseop_class.php:594
-#: aioseop_class.php:616
+#: aioseop_class.php:377 aioseop_class.php:393 aioseop_class.php:416
+#: aioseop_class.php:426 aioseop_class.php:435 aioseop_class.php:578
+#: aioseop_class.php:594 aioseop_class.php:616
+#: modules/aioseop_performance.php:67
 msgid "Enabled"
 msgstr "Включить"
 
@@ -2770,7 +2770,7 @@ msgstr "Исключить зарегистрированных пользова
 msgid "Enter your Google+ Profile URL here to add the rel=“author” tag to your site for Google authorship. It is recommended that the URL you enter here should be your personal Google+ profile.  Use the Advanced Authorship Options below if you want greater control over the use of authorship."
 msgstr "Введите URL Вашего Google+ профиль, чтобы добавить атрибут rel=“author” для Вашего сайта (для Google авторства). Рекомендуется, чтобы URL, который Вы вводите, был Вашим личным профилем Google+. Используйте расширенным настройки авторства ниже, если хотите иметь больший контроль над использованием авторства."
 
-#: modules/aioseop_performance.php:63 aioseop_class.php:421
+#: aioseop_class.php:421 modules/aioseop_performance.php:63
 msgid "Force Rewrites:"
 msgstr "Принудительная перезапись:"
 
@@ -2794,7 +2794,7 @@ msgstr "Описание главной стр.:"
 msgid "Home Keywords (comma separated):"
 msgstr "Ключевые слова главной страницы (разделять запятыми):"
 
-#: modules/aioseop_opengraph.php:576 aioseop_class.php:970
+#: aioseop_class.php:970 modules/aioseop_opengraph.php:576
 msgid "Home Page Settings"
 msgstr "Настройки главной страницы"
 
@@ -2918,7 +2918,7 @@ msgstr "Это позволит определить, где отображат�
 msgid "This string gets appended/prepended to titles of paged index pages (like home or archive pages)."
 msgstr "Эти строки добавляются к названиям выгружаемых индексных страниц (например, домашняя или архивные страницы)."
 
-#: modules/aioseop_opengraph.php:430 aioseop_class.php:915
+#: aioseop_class.php:915 modules/aioseop_opengraph.php:430
 msgid "Title"
 msgstr "Заголовок"
 
@@ -3196,7 +3196,7 @@ msgstr "%page_author_login% - Логин автора записи"
 
 #: aioseop_class.php:129
 msgid "%category% - Alias for %category_title%"
-msgstr "%1$category% - Синоним для %2$category_title%"
+msgstr "%category% - Синоним для %category_title%"
 
 #: aioseop_class.php:104 aioseop_class.php:115
 msgid "%page_author_nicename% - This page's author' nicename"
@@ -3324,7 +3324,7 @@ msgstr "Это список запрещенных рефереров, испо�
 
 #. translators: the Bad Bot Blocker module allows users to block requests from
 #. user agents that are known to misbehave.
-#: modules/aioseop_bad_robots.php:17 modules/aioseop_feature_manager.php:61
+#: modules/aioseop_feature_manager.php:61 modules/aioseop_bad_robots.php:17
 msgid "Bad Bot Blocker"
 msgstr "Блокировщик вредных ботов"
 
@@ -3356,8 +3356,8 @@ msgstr "Отображает журнал самых последних запр
 msgid "Log and show recent requests from blocked bots."
 msgstr "Журналирование и отображение последних запросов от заблокированных ботов."
 
-#: modules/aioseop_importer_exporter.php:46 aioseop_class.php:73
-#: aioseop_class.php:965
+#: aioseop_class.php:73 aioseop_class.php:965
+#: modules/aioseop_importer_exporter.php:46
 msgid "General Settings"
 msgstr "Общие настройки"
 

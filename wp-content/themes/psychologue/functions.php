@@ -463,13 +463,32 @@ function dimox_breadcrumbs() {
 					
 					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($shops_term->term_id, 'shops-list') . '">' . $shops_term->name . '</a></li>' . 
 					'<li><a href="'.get_term_link($term[0]->term_id, 'shops-list').'">' . $term[0]->name . '</a></li>' . $sep . $before . get_the_title() . $after;
-				}elseif( get_post_type() == 'articles'){
+				/*}elseif( get_post_type() == 'articles'){
 					$term = get_the_terms(get_the_ID(), 'articles-list');
 					
 					$articles_term = get_term( '21', 'articles-list' );
 					
 					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($articles_term->term_id, 'articles-list') . '">' . $articles_term->name . '</a></li>' .
-					'<li><a href="'.get_term_link($term[1]->term_id, 'articles-list').'">' . $term[1]->name . '</a></li>' . $sep . $before . get_the_title() . $after;
+					'<li><a href="'.get_term_link($term[1]->term_id, 'articles-list').'">' . $term[1]->name . '</a></li>' . $sep . $before . get_the_title() . $after;*/
+				}elseif(is_singular('tribe_events')){
+					global $wp;
+					
+					$current_full_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+					
+					$url = explode('name=', $current_full_url);
+
+					global $wpdb;
+	
+					$post_id = $wpdb->get_var( $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name = %s", $url[1]) );
+					
+					$term = wp_get_post_terms($post_id, 'tribe_events_cat', array('fields' => 'all'));
+										
+					$main_events = get_option('tribe_events_calendar_options');
+					
+					$title = $wpdb->get_var( $wpdb->prepare("SELECT post_title FROM $wpdb->posts WHERE ID = %s", $post_id) );
+								
+					if ($show_current) echo  '<li><a href="' . home_url($main_events['eventsSlug']) . '">' . 'Мероприятия' . '</a></li>' . $term->name . $after .
+					'<li><a href="'.get_term_link($term[0]->term_id, 'tribe_events_cat').'">' . $term[0]->name . '</a></li>' . $sep . $before . $title . $after;
 				}elseif( get_post_type() == 'workshop'){
 					$term = get_the_terms(get_the_ID(), 'workshop-list');
 					
@@ -499,8 +518,10 @@ function dimox_breadcrumbs() {
 		} elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
 			//Категории (для category.php)
 			$term_name_shops = get_term( get_queried_object()->term_id, 'shops-list' );
-			$term_name_articles = get_term( get_queried_object()->term_id, 'articles-list' );
+			//$term_name_articles = get_term( get_queried_object()->term_id, 'articles-list' );
+			$term_name_events = get_term( get_queried_object()->term_id, 'tribe_events_cat' );
 			$term_name_workshops = get_term( get_queried_object()->term_id, 'workshop-list' );
+			$get_queried_events = get_queried_object();
 			
 			if(get_post_type() == 'shops' || $term_name_shops->taxonomy == 'shops-list'){
 				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
@@ -513,7 +534,7 @@ function dimox_breadcrumbs() {
 					if ($show_current) echo  $before . $term->name . $after;
 				}
 				
-			}elseif(get_post_type() == 'articles' || $term_name_articles->taxonomy == 'articles-list'){
+			/*}elseif(get_post_type() == 'articles' || $term_name_articles->taxonomy == 'articles-list'){
 				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 				
 				$articles_term = get_term( '21', 'articles-list' );
@@ -522,7 +543,17 @@ function dimox_breadcrumbs() {
 					if ($show_current) echo  '<li><a href="' . get_term_link($articles_term->term_id, 'articles-list') . '">' . $articles_term->name . '</a></li>' . $before . $term->name . $after;
 				}else{
 					if ($show_current) echo  $before . $term->name . $after;
-				}
+				}*/
+			}elseif($get_queried_events->query_var == 'tribe_events'){
+				$main_events = get_option('tribe_events_calendar_options');
+				
+				if ($show_current) echo '<li><a href="' . $main_events['eventsSlug'] . '">' . $get_queried_events->label . '</a></li>';
+			}elseif($term_name_events->taxonomy == 'tribe_events_cat'){
+				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+				
+				$main_events = get_option('tribe_events_calendar_options');
+				
+				if ($show_current) echo  '<li><a href="' . home_url($main_events['eventsSlug']) . '">' . 'Мероприятия' . '</a></li>' . $before . $term->name . $after;
 			}elseif(get_post_type() == 'workshop' || $term_name_workshops->taxonomy == 'workshop-list'){
 				$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 				
@@ -678,7 +709,7 @@ add_action( 'init', 'create_taxonomies_shops', 0 );
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
 //Вывод в админке раздела
-function register_post_type_articles() {
+/*function register_post_type_articles() {
 	$labels = array(
 	 'name' => 'Мероприятия',
 	 'singular_name' => 'Мероприятия',
@@ -705,9 +736,9 @@ function register_post_type_articles() {
 	 );
  	register_post_type('articles', $args);
 }
-add_action( 'init', 'register_post_type_articles' );
+add_action( 'init', 'register_post_type_articles' );*/
 
-function true_post_type_articles( $articles ) {
+/*function true_post_type_articles( $articles ) {
 	global $post, $post_ID;
 
 	$articles['articles'] = array(
@@ -740,7 +771,7 @@ function create_taxonomies_articles()
         'rewrite' => array('slug' => 'articles-list' )
     ));
 }
-add_action( 'init', 'create_taxonomies_articles', 0 );
+add_action( 'init', 'create_taxonomies_articles', 0 );*/
 
 /**********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************
@@ -818,7 +849,7 @@ add_action( 'init', 'create_taxonomies_workshop', 0 );
 ***********************************************************************************************************************************************************/
 //Удаление sluga из url таксономии 
 function remove_slug_from_post( $post_link, $post, $leavename ) {
-	if ( 'articles' != $post->post_type && 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
+	if ( /*'articles' != $post->post_type &&*/ 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
 		return $post_link;
 	}
 		$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
@@ -835,7 +866,7 @@ function parse_request_url_post( $query ) {
 	}
 
 	if ( ! empty( $query->query['name'] ) ) {
-		$query->set( 'post_type', array( 'post', 'articles', 'shops', 'workshop', 'page' ) );
+		$query->set( 'post_type', array( 'post', /*'articles',*/ 'shops', 'workshop', 'page' ) );
 	}
 }
 add_action( 'pre_get_posts', 'parse_request_url_post' );
@@ -846,7 +877,7 @@ add_action( 'pre_get_posts', 'parse_request_url_post' );
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
 //Удаление articles-list из url таксономии
-function true_remove_slug_from_articles( $url, $term, $taxonomy ){
+/*function true_remove_slug_from_articles( $url, $term, $taxonomy ){
 
 	$taxonomia_name = 'articles-list';
 	$taxonomia_slug = 'articles-list';
@@ -857,10 +888,10 @@ function true_remove_slug_from_articles( $url, $term, $taxonomy ){
 
 	return $url;
 }
-add_filter( 'term_link', 'true_remove_slug_from_articles', 10, 3 );
+add_filter( 'term_link', 'true_remove_slug_from_articles', 10, 3 );*/
 
 //Перенаправление articles-list в случае удаления category
-function parse_request_url_articles( $query ){
+/*function parse_request_url_articles( $query ){
 
 	$taxonomia_name = 'articles-list';
 
@@ -908,7 +939,7 @@ function parse_request_url_articles( $query ){
 	return $query;
 
 }
-add_filter('request', 'parse_request_url_articles', 1, 1 );
+add_filter('request', 'parse_request_url_articles', 1, 1 );*/
 
 //Удаление shops-list из url таксономии
 function true_remove_slug_from_shops( $url, $term, $taxonomy ){
@@ -1039,3 +1070,10 @@ function parse_request_url_workshop( $query ){
 
 }
 add_filter('request', 'parse_request_url_workshop', 1, 1 );
+
+//add fix events page
+function calendar_after_html() {
+   echo "</div>";
+}
+add_filter( 'tribe_events_after_html', 'calendar_after_html', 10 );
+

@@ -709,7 +709,7 @@ add_action( 'init', 'create_taxonomies_shops', 0 );
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
 //Вывод в админке раздела
-/*function register_post_type_articles() {
+function register_post_type_articles() {
 	$labels = array(
 	 'name' => 'Мероприятия',
 	 'singular_name' => 'Мероприятия',
@@ -736,9 +736,9 @@ add_action( 'init', 'create_taxonomies_shops', 0 );
 	 );
  	register_post_type('articles', $args);
 }
-add_action( 'init', 'register_post_type_articles' );*/
+add_action( 'init', 'register_post_type_articles' );
 
-/*function true_post_type_articles( $articles ) {
+function true_post_type_articles( $articles ) {
 	global $post, $post_ID;
 
 	$articles['articles'] = array(
@@ -771,7 +771,7 @@ function create_taxonomies_articles()
         'rewrite' => array('slug' => 'articles-list' )
     ));
 }
-add_action( 'init', 'create_taxonomies_articles', 0 );*/
+add_action( 'init', 'create_taxonomies_articles', 0 );
 
 /**********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************
@@ -849,7 +849,7 @@ add_action( 'init', 'create_taxonomies_workshop', 0 );
 ***********************************************************************************************************************************************************/
 //Удаление sluga из url таксономии 
 function remove_slug_from_post( $post_link, $post, $leavename ) {
-	if ( /*'articles' != $post->post_type &&*/ 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
+	if ( 'articles' != $post->post_type && 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
 		return $post_link;
 	}
 		$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
@@ -866,7 +866,7 @@ function parse_request_url_post( $query ) {
 	}
 
 	if ( ! empty( $query->query['name'] ) ) {
-		$query->set( 'post_type', array( 'post', /*'articles',*/ 'shops', 'workshop', 'page' ) );
+		$query->set( 'post_type', array( 'post', 'articles', 'shops', 'workshop', 'page' ) );
 	}
 }
 add_action( 'pre_get_posts', 'parse_request_url_post' );
@@ -877,7 +877,7 @@ add_action( 'pre_get_posts', 'parse_request_url_post' );
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
 //Удаление articles-list из url таксономии
-/*function true_remove_slug_from_articles( $url, $term, $taxonomy ){
+function true_remove_slug_from_articles( $url, $term, $taxonomy ){
 
 	$taxonomia_name = 'articles-list';
 	$taxonomia_slug = 'articles-list';
@@ -888,10 +888,10 @@ add_action( 'pre_get_posts', 'parse_request_url_post' );
 
 	return $url;
 }
-add_filter( 'term_link', 'true_remove_slug_from_articles', 10, 3 );*/
+add_filter( 'term_link', 'true_remove_slug_from_articles', 10, 3 );
 
 //Перенаправление articles-list в случае удаления category
-/*function parse_request_url_articles( $query ){
+function parse_request_url_articles( $query ){
 
 	$taxonomia_name = 'articles-list';
 
@@ -939,7 +939,7 @@ add_filter( 'term_link', 'true_remove_slug_from_articles', 10, 3 );*/
 	return $query;
 
 }
-add_filter('request', 'parse_request_url_articles', 1, 1 );*/
+add_filter('request', 'parse_request_url_articles', 1, 1 );
 
 //Удаление shops-list из url таксономии
 function true_remove_slug_from_shops( $url, $term, $taxonomy ){

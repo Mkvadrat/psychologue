@@ -50,14 +50,14 @@ $date_label = date_i18n( tribe_get_date_option( 'dateWithoutYearFormat', 'F j' )
 					$day['total_events'],
 					'the-events-calendar'
 				),
-				$day['total_events'],
-				$events_label
+				'',
+				''
 			);
 
 			$view_all_aria_label = sprintf( __( '%s for %s', 'the-events-calendar' ), $view_all_label, $date_label );
 		?>
 		<a href="<?php echo esc_url( $day['view_more'] ); ?>" aria-label="<?php echo esc_attr( $view_all_aria_label ); ?>">
-			<?php echo $view_all_label ?> &raquo;
+			<?php echo $view_all_label; ?>
 		</a>
 	</div>
 <?php

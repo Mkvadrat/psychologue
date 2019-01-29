@@ -709,7 +709,7 @@ add_action( 'init', 'create_taxonomies_shops', 0 );
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
 //Вывод в админке раздела
-function register_post_type_articles() {
+/*function register_post_type_articles() {
 	$labels = array(
 	 'name' => 'Мероприятия',
 	 'singular_name' => 'Мероприятия',
@@ -771,7 +771,7 @@ function create_taxonomies_articles()
         'rewrite' => array('slug' => 'articles-list' )
     ));
 }
-add_action( 'init', 'create_taxonomies_articles', 0 );
+add_action( 'init', 'create_taxonomies_articles', 0 );*/
 
 /**********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************
@@ -849,7 +849,7 @@ add_action( 'init', 'create_taxonomies_workshop', 0 );
 ***********************************************************************************************************************************************************/
 //Удаление sluga из url таксономии 
 function remove_slug_from_post( $post_link, $post, $leavename ) {
-	if ( 'articles' != $post->post_type && 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
+	if ( /*'articles' != $post->post_type &&*/ 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
 		return $post_link;
 	}
 		$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
@@ -866,7 +866,7 @@ function parse_request_url_post( $query ) {
 	}
 
 	if ( ! empty( $query->query['name'] ) ) {
-		$query->set( 'post_type', array( 'post', 'articles', 'shops', 'workshop', 'page' ) );
+		$query->set( 'post_type', array( 'post', /*'articles',*/ 'shops', 'workshop', 'page' ) );
 	}
 }
 add_action( 'pre_get_posts', 'parse_request_url_post' );
@@ -877,7 +877,7 @@ add_action( 'pre_get_posts', 'parse_request_url_post' );
 ***********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************/
 //Удаление articles-list из url таксономии
-function true_remove_slug_from_articles( $url, $term, $taxonomy ){
+/*function true_remove_slug_from_articles( $url, $term, $taxonomy ){
 
 	$taxonomia_name = 'articles-list';
 	$taxonomia_slug = 'articles-list';
@@ -888,10 +888,10 @@ function true_remove_slug_from_articles( $url, $term, $taxonomy ){
 
 	return $url;
 }
-add_filter( 'term_link', 'true_remove_slug_from_articles', 10, 3 );
+add_filter( 'term_link', 'true_remove_slug_from_articles', 10, 3 );*/
 
 //Перенаправление articles-list в случае удаления category
-function parse_request_url_articles( $query ){
+/*function parse_request_url_articles( $query ){
 
 	$taxonomia_name = 'articles-list';
 
@@ -939,7 +939,7 @@ function parse_request_url_articles( $query ){
 	return $query;
 
 }
-add_filter('request', 'parse_request_url_articles', 1, 1 );
+add_filter('request', 'parse_request_url_articles', 1, 1 );*/
 
 //Удаление shops-list из url таксономии
 function true_remove_slug_from_shops( $url, $term, $taxonomy ){
@@ -1071,9 +1071,86 @@ function parse_request_url_workshop( $query ){
 }
 add_filter('request', 'parse_request_url_workshop', 1, 1 );
 
+/**********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
+***************************************************************************TRIBE EVENTS********************************************************************
+***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************/
 //add fix events page
 function calendar_after_html() {
    echo "</div>";
 }
 add_filter( 'tribe_events_after_html', 'calendar_after_html', 10 );
+
+function tribe_preserve_html_in_excerpt( $original_text ) {
+		
+	$permalink = get_permalink( get_the_ID() );
+
+    return kama_excerpt(array('text'=>$original_text, 'maxchar'=>250, 'autop'=>true,)) . '<a href="'.$permalink.'">Читать далее</a>';
+}
+add_filter( 'tribe_events_get_the_excerpt', 'tribe_preserve_html_in_excerpt', 10, 4 );
+
+
+/**********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
+*************************************************************************ОБРЕЗКА ТЕКСТА********************************************************************
+***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************/
+function kama_excerpt( $args = '' ){
+	global $post;
+
+	$default = array(
+		'maxchar'   => 350,   // количество символов.
+		'text'      => '',    // какой текст обрезать (по умолчанию post_excerpt, если нет post_content.
+							  // Если есть тег <!--more-->, то maxchar игнорируется и берется все до <!--more--> вместе с HTML
+		'autop'     => true,  // Заменить переносы строк на <p> и <br> или нет
+		'save_tags' => '',    // Теги, которые нужно оставить в тексте, например '<strong><b><a>'
+		'more_text' => 'Читать дальше...', // текст ссылки читать дальше
+	);
+
+	if( is_array($args) ) $_args = $args;
+	else                  parse_str( $args, $_args );
+
+	$rg = (object) array_merge( $default, $_args );
+	if( ! $rg->text ) $rg->text = $post->post_excerpt ?: $post->post_content;
+	$rg = apply_filters('kama_excerpt_args', $rg );
+
+	$text = $rg->text;
+	$text = preg_replace ('~\[/?.*?\](?!\()~', '', $text ); // убираем шоткоды, например:[singlepic id=3], markdown +
+	$text = trim( $text );
+
+	// <!--more-->
+	if( strpos( $text, '<!--more-->') ){
+		preg_match('/(.*)<!--more-->/s', $text, $mm );
+
+		$text = trim($mm[1]);
+
+		$text_append = ' <a href="'. get_permalink( $post->ID ) .'#more-'. $post->ID .'">'. $rg->more_text .'</a>';
+	}
+	// text, excerpt, content
+	else {
+		$text = trim( strip_tags($text, $rg->save_tags) );
+
+		// Обрезаем
+		if( mb_strlen($text) > $rg->maxchar ){
+			$text = mb_substr( $text, 0, $rg->maxchar );
+			$text = preg_replace('~(.*)\s[^\s]*$~s', '\\1 [...]', $text ); // убираем последнее слово, оно 99% неполное
+		}
+	}
+
+	// Сохраняем переносы строк. Упрощенный аналог wpautop()
+	if( $rg->autop ){
+		$text = preg_replace(
+			array("~\r~", "~\n{2,}~", "~\n~",   '~</p><br ?/>~'),
+			array('',     '</p><p>',  '<br />', '</p>'),
+			$text
+		);
+	}
+
+	$text = apply_filters('kama_excerpt', $text, $rg );
+
+	if( isset($text_append) ) $text .= $text_append;
+
+	return ($rg->autop && $text) ? "<p>$text</p>" : $text;
+}
 

@@ -22,7 +22,7 @@ Version: 1.0
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo psy_wp_title('','', true, 'right'); ?></title>
+    <title><?php echo psy_wp_title('','|', true, 'right'); ?></title>
     
     <?php wp_head(); ?>
 </head>
@@ -31,7 +31,7 @@ Version: 1.0
         <header>
             <div class="container">
                 <div class="top-line row">
-                    <div class="col-md-6 col-sm-6 xs-hidden">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
                         <p><?php echo getMeta('contact_inf_a_main_page'); ?></p>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">

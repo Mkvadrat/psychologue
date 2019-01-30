@@ -195,6 +195,13 @@
     .top-line p {
         text-align: center;
     }
+    .top-line p:not(.ralign) {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    .top-line {
+        flex-wrap: wrap;
+    }
     .event {
         margin: 0 0 30px;
         display: -webkit-box;

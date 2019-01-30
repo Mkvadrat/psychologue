@@ -64,6 +64,7 @@ get_header();
                                 foreach($comments as $comment){
                                     $author = $comment->comment_author;
                                     $descr = strip_tags( $comment->comment_content );
+                                    $city = get_comment_meta($comment->comment_ID, 'city', true);
                                     global $cnum;
                             
                                     // определяем первый номер, если включено разделение на страницы
@@ -79,7 +80,7 @@ get_header();
                                     $cnum = isset($cnum) ? $cnum+1 : 1;
                             ?>
                             <div class="item">
-                                <p class="name"><?php echo $author; ?></p>
+                                <p class="name"><?php echo $author; ?><?php echo $city ? ', ' . $city : ''; ?></p>
                                 <span class="date"><?php comment_date( 'd.m.y', $comment->comment_ID ); ?></span>
                                 <p><?php echo $descr; ?></p>
                             </div>

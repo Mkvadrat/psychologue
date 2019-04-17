@@ -29,7 +29,7 @@ define('DB_USER', 'u12971_zezulinsk');
 define('DB_PASSWORD', 'ePW^S[zea,aw');
 
 /** Имя сервера MySQL */
-define('DB_HOST', 'db2.unlim.com');
+define('DB_HOST', 'db5.unlim.com');
 
 /** Кодировка базы данных для создания таблиц. */
 define('DB_CHARSET', 'utf8mb4');

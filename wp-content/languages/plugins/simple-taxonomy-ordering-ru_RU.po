@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Simple Taxonomy Ordering - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-11-11 08:29:12+0000\n"
+"PO-Revision-Date: 2019-03-14 03:09:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,78 +11,73 @@ msgstr ""
 "Language: ru\n"
 "Project-Id-Version: Plugins - Simple Taxonomy Ordering - Stable (latest release)\n"
 
-#. Author of the plugin/theme
+#. Author of the plugin
 msgid "YIKES, Inc."
 msgstr "YIKES, Inc."
 
-#: yikes-custom-taxonomy-order.php:225
+#: yikes-custom-taxonomy-order.php:230
 msgid "Settings"
 msgstr "Настройки"
 
-#: lib/options.php:109
+#: lib/options.php:108
 msgid "Enabled Taxonomies"
 msgstr "Включенные таксономии"
 
-#. #-#-#-#-#  simple-taxonomy-ordering-code.pot (YIKES Simple Taxonomy Ordering
-#. 1.2.7)  #-#-#-#-#
-#. Plugin URI of the plugin/theme
-#. #-#-#-#-#  simple-taxonomy-ordering-code.pot (YIKES Simple Taxonomy Ordering
-#. 1.2.7)  #-#-#-#-#
-#. Author URI of the plugin/theme
+#. Plugin URI of the plugin
+#. Author URI of the plugin
 msgid "http://www.yikesinc.com"
 msgstr "http://www.yikesinc.com "
 
-#: lib/options.php:151
+#: lib/options.php:147
 msgid "Select which taxonomies you would like to enable drag & drop sorting on."
 msgstr "Выберите, для каких таксономий вы хотите включить сортировку путем перетаскивания рубрик (способ  drag & drop)."
 
-#: yikes-custom-taxonomy-order.php:226
+#: yikes-custom-taxonomy-order.php:231
 msgid "More Plugins by YIKES"
 msgstr "Еще плагины от YIKES"
 
-#: lib/options.php:154
+#: lib/options.php:150
 msgid "No Taxonomies Found."
 msgstr "Таксономий не найдено."
 
-#: yikes-custom-taxonomy-order.php:103
+#: yikes-custom-taxonomy-order.php:95
 msgid "To reposition a taxonomy in the list, simply click on a taxonomy and drag & drop it into the desired position. Each time you reposition a taxonomy, the data will update in the database and on the front end of your site."
 msgstr "Чтобы поменять рубрики местами, просто нажмите на нужную рубрику и перетащите ее на нужное место. Каждый раз, когда вы перемещаете рубрику, данные будут обновляться в базе данных и будет изменена сортировка рубрик на вашем сайте."
 
-#: yikes-custom-taxonomy-order.php:103
+#: yikes-custom-taxonomy-order.php:95
 msgid "Example"
 msgstr "Пример"
 
-#. Description of the plugin/theme
+#. Description of the plugin
 msgid "Custom drag & drop taxonomy ordering."
 msgstr "Сортировка элементов таксономий путем перетаскивания"
 
-#. #-#-#-#-#  simple-taxonomy-ordering-code.pot (YIKES Simple Taxonomy Ordering
-#. 1.2.7)  #-#-#-#-#
-#. Plugin Name of the plugin/theme
+#. Plugin Name of the plugin
 #: lib/options.php:77
 msgid "YIKES Simple Taxonomy Ordering"
 msgstr "YIKES Simple Taxonomy Ordering"
 
-#: yikes-custom-taxonomy-order.php:102
+#: yikes-custom-taxonomy-order.php:94
 msgid "Taxonomy Ordering"
 msgstr "Сортировка элементов таксономии"
 
-#: lib/options.php:48
-msgid "Simple Taxonomy Ordering was created by %s. If you are enjoying it, please leave us a %s review</a>!"
-msgstr "Плагин «Simple Taxonomy Ordering» был создан %s. Если вам понравился наш плагин, пожалуйста, оставьте свой отзыв %s </a>!"
-
-#: yikes-custom-taxonomy-order.php:225
+#: yikes-custom-taxonomy-order.php:230
 msgid "Simple Taxonomy Ordering Settings"
 msgstr "Настройки Simple Taxonomy Ordering"
 
-#: yikes-custom-taxonomy-order.php:103
+#: yikes-custom-taxonomy-order.php:95
 msgid "Simple Taxonomy Ordering Demo"
 msgstr "Демонстрация плагина «Simple Taxonomy Ordering»"
 
-#: lib/options.php:122
+#: lib/options.php:119
 msgid "Adjust the settings for YIKES Simple Taxonomy Ordering below."
 msgstr "Установите нужные настройки для плагина «Simple Taxonomy Ordering» от YIKES ниже."
 
-#: lib/options.php:60 lib/options.php:61
+#: lib/options.php:61 lib/options.php:62
 msgid "Simple Tax. Ordering"
 msgstr "Сортировка таксономий"
+
+#. translators: placeholders are links
+#: lib/options.php:48
+msgid "Simple Taxonomy Ordering was created by %1$s. If you are enjoying it, please leave us a %2$s review!"
+msgstr "Плагин Simple Taxonomy Ordering создан %1$s. Если он вам нравится, пожалуйста добавьте свой отзыв с оценкой %2$s!"

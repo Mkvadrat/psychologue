@@ -23,12 +23,13 @@ Version: 1.0
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo psy_wp_title('','|', true, 'right'); ?></title>
-    
+   <meta name="yandex-verification" content="14007ce1480fee1d" />
     <?php wp_head(); ?>
 </head>
 <body>
     <div class="page">
         <header>
+        
             <div class="container">
                 <div class="top-line row">
                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -86,5 +87,5 @@ Version: 1.0
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>           
         </header>

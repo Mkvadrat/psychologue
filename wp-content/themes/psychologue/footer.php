@@ -10,6 +10,7 @@ Version: 1.0
 ?>
         
         <footer>
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 mob-padding">
@@ -129,5 +130,12 @@ Version: 1.0
 
     <?php wp_footer(); ?>
     
+    <script>
+        (function(w,d,u){
+                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
+                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+        })(window,document,'https://cdn.bitrix24.ru/b8682007/crm/site_button/loader_1_yfm63e.js');
+    </script>
+<?php if(function_exists('the_ratings')) { the_ratings(); } ?>
 </body>
 </html>

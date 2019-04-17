@@ -17,8 +17,7 @@ get_header();
                          $gallery_id = getNextGallery(get_the_ID(), 'banner_main_page');
                          $gallery_image = $nggdb->get_gallery($gallery_id[0]["ngg_id"], 'sortorder', 'ASC', false, 0, 0);
                          if($gallery_image){
-                             foreach($gallery_image as $image) {
-                              
+                             foreach($gallery_image as $image) { 
                          ?>
                            <div class="slide">
                               <img src="<?php echo nextgen_esc_url($image->imageURL); ?>" alt="">

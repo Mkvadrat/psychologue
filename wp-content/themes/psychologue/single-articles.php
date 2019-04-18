@@ -39,14 +39,19 @@ get_header();
 						<div class="side-list">
 							<p class="title"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/artcl-side-icon@2x.png" alt="">Мероприятия</p>
 							<ul>
-								<?php 
-									$terms = get_terms("articles-list", 'orderby=count&hide_empty=0&child_of=21');
-									$count = count($terms);
-									if ($count > 0) {
-										foreach ($terms as $term) {
-											$term_link = get_term_link($term->term_taxonomy_id, 'articles-list');
+								<?php
+									$childrens = get_children( array( 
+										'post_parent' => 1877,
+										'post_type'   => 'page', 
+										'numberposts' => -1,
+										'post_status' => 'public',
+										'order'       => 'ASC',
+									) );
+									
+									if( $childrens ){
+										foreach( $childrens as $children ){
 								?>
-									<li><a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></li>
+									<li><a href="<?php echo get_permalink( $children->ID ); ?>"><?php echo $children->post_title; ?></a></li>
 								<?php
 										}
 									}
@@ -65,7 +70,8 @@ get_header();
                                <div class="col-md-12 index-page-form">
                                  <div class="form">
                                    <?php
-                                       $forms_a = getTermMeta('contacts_a_form_activities_page');;
+                                       $forms_a = getTermMeta(21, 'contacts_a_form_activities_page');
+									   
                                        if($forms_a){
                                          echo do_shortcode('[contact-form-7 id=" ' . $forms_a . ' "]'); 
                                        }

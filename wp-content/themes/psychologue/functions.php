@@ -229,10 +229,10 @@ function getMeta($meta_key){
 	return $value;
 }
 
-function getTermMeta($meta_key){
+function getTermMeta($term_id, $meta_key){
 	global $wpdb;
 	
-	$value = $wpdb->get_var( $wpdb->prepare("SELECT meta_value FROM $wpdb->termmeta WHERE meta_key = %s ORDER BY meta_id DESC LIMIT 1", $meta_key) );
+	$value = $wpdb->get_var( $wpdb->prepare("SELECT meta_value FROM $wpdb->termmeta WHERE term_id = %s AND meta_key = %s", $term_id, $meta_key) );
 	
 	return $value;
 }
@@ -463,13 +463,27 @@ function dimox_breadcrumbs() {
 					
 					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($shops_term->term_id, 'shops-list') . '">' . $shops_term->name . '</a></li>' . 
 					'<li><a href="'.get_term_link($term[0]->term_id, 'shops-list').'">' . $term[0]->name . '</a></li>' . $sep . $before . get_the_title() . $after;
-				/*}elseif( get_post_type() == 'articles'){
-					$term = get_the_terms(get_the_ID(), 'articles-list');
+				}elseif( get_post_type() == 'articles'){
+					$get_pages_id = get_post_meta( get_the_ID(), 'related_rubriq_data_activities_page', $single = true );
+			
+					if(!empty($get_pages_id)){
+						if($get_pages_id != 1877){
+							$main_page = get_post(1877);
+							
+							$pages = get_post($get_pages_id);
+	
+							if ($show_current) echo  $before_tax . '<li><a href="' . get_permalink($main_page->ID) . '">' . $main_page->post_title . '</a></li>' .
+							'<li><a href="'.get_permalink($pages->ID).'">' . $pages->post_title . '</a></li>' . $sep . $before . get_the_title() . $after;
+						}else{
+							$pages = get_post($get_pages_id);
 					
-					$articles_term = get_term( '21', 'articles-list' );
+							if ($show_current) echo  $before_tax . '<li><a href="' . get_permalink($pages->ID) . '">' . $pages->post_title . '</a></li>' . $after;
+						}
+					}else{
+						$pages = get_post(1877);
 					
-					if ($show_current) echo  $before_tax . '<li><a href="' . get_term_link($articles_term->term_id, 'articles-list') . '">' . $articles_term->name . '</a></li>' .
-					'<li><a href="'.get_term_link($term[1]->term_id, 'articles-list').'">' . $term[1]->name . '</a></li>' . $sep . $before . get_the_title() . $after;*/
+						if ($show_current) echo  $before_tax . '<li><a href="' . get_permalink($pages->ID) . '">' . $pages->post_title . '</a></li>' . $after;
+					}
 				}elseif(is_singular('tribe_events')){
 					global $wp;
 					
@@ -763,12 +777,13 @@ function create_taxonomies_articles()
 {
     // Cats Categories
     register_taxonomy('articles-list',array('articles'),array(
-        'hierarchical' => true,
+        'hierarchical' => false,
         'label' => 'Рубрики',
         'singular_name' => 'Рубрика',
         'show_ui' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'articles-list' )
+        'rewrite' => array('slug' => 'articles-list' ),
+		'publicly_queryable' => false
     ));
 }
 add_action( 'init', 'create_taxonomies_articles', 0 );
@@ -849,7 +864,7 @@ add_action( 'init', 'create_taxonomies_workshop', 0 );
 ***********************************************************************************************************************************************************/
 //Удаление sluga из url таксономии 
 function remove_slug_from_post( $post_link, $post, $leavename ) {
-	if ( /*'articles' != $post->post_type &&*/ 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
+	if ( 'articles' != $post->post_type && 'shops' != $post->post_type && 'workshop' != $post->post_type || 'publish' != $post->post_status ) {
 		return $post_link;
 	}
 		$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
@@ -866,7 +881,7 @@ function parse_request_url_post( $query ) {
 	}
 
 	if ( ! empty( $query->query['name'] ) ) {
-		$query->set( 'post_type', array( 'post', /*'articles',*/ 'shops', 'workshop', 'page' ) );
+		$query->set( 'post_type', array( 'post', 'articles', 'shops', 'workshop', 'page' ) );
 	}
 }
 add_action( 'pre_get_posts', 'parse_request_url_post' );

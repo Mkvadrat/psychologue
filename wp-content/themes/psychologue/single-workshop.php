@@ -65,7 +65,7 @@ get_header();
                                <div class="col-md-12 index-page-form">
                                  <div class="form">
                                    <?php
-                                       $forms_a = getTermMeta('contacts_a_form_workshop_page');;
+                                       $forms_a = getTermMeta(24, 'contacts_a_form_workshop_page');;
                                        if($forms_a){
                                          echo do_shortcode('[contact-form-7 id=" ' . $forms_a . ' "]'); 
                                        }
